@@ -31,7 +31,7 @@ public class MonsterHPBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		barDisplay = (float)monsterStatus.getCurrentHealth () / 100;
+		barDisplay = (float)monsterStatus.CurrentHealth / 100;
 	}
 	
 }

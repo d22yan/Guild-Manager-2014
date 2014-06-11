@@ -49,6 +49,7 @@
      <Compile Include="Assets\MonsterAttacked.cs" />
      <Compile Include="Assets\MonsterHPBar.cs" />
      <Compile Include="Assets\MonsterStatus.cs" />
+     <Compile Include="Assets\UserHPBar.cs" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\enemies.xml" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\alienPink.xml" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\alienBlue.xml" />
