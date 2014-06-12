@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MonsterHPBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MonsterAttack.cs">
     <Files>
-      <File FileName="Assets\MonsterStatus.cs" Line="1" Column="1" />
-      <File FileName="Assets\MonsterStatus.cs" Line="1" Column="1" />
-      <File FileName="Assets\MonsterHPBar.cs" Line="34" Column="23" />
-      <File FileName="Assets\MonsterAttacked.cs" Line="1" Column="1" />
+      <File FileName="Assets\MonsterDefeated.cs" Line="22" Column="24" />
+      <File FileName="Assets\GameState.cs" Line="6" Column="35" />
+      <File FileName="Assets\MonsterHPBar.cs" Line="6" Column="37" />
+      <File FileName="Assets\MonsterSpawn.cs" Line="1" Column="1" />
+      <File FileName="Assets\MonsterAttack.cs" Line="10" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

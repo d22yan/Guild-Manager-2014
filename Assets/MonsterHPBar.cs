@@ -4,7 +4,7 @@ using System.Collections;
 public class MonsterHPBar : MonoBehaviour {
 
 	public MonsterStatus monsterStatus;
-	float barDisplay = 0;
+	float barDisplay = 1;
 	Vector2 pos = new Vector2(20,40);
 	Vector2 size = new Vector2(60,20);
 	public Texture2D progressBarEmpty;
