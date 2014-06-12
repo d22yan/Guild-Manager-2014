@@ -14,7 +14,7 @@ public class MonsterSpawn : MonoBehaviour {
 	
 	}
 
-	void Spawn() {
+	public void Spawn() {
 		GameObject monsterClone = (GameObject)Instantiate (monster, new Vector2 (0, 0), new Quaternion ());		
 	}
 }
