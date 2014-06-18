@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GoldTotal : MonoBehaviour {
-
-	public GUIStyle style1;
-	public GameState gameState;
+public class BackButton : MonoBehaviour {
 
 	void OnGUI() {
-		GUI.Button(new Rect(120, 10, 100, 20), gameState.PlayerGold.ToString());
+		if (GUI.Button (new Rect (30, 5, 30, 30), "back")) {
+			Application.LoadLevel("map_screen");
+		}
 	}
 
 	// Use this for initialization
