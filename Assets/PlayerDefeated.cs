@@ -4,8 +4,6 @@ using System.Collections;
 public class PlayerDefeated : MonoBehaviour {
 
 	public PlayerStatus playerStatus;
-	public GameState gameState;
-	public PlayerSpawn playerSpawn;
 
 
 	// Use this for initialization
@@ -17,5 +15,10 @@ public class PlayerDefeated : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void DefeatPlayer() {
+		GameState.PlayerGold -= (int)(GameState.PlayerGold * 0.1);
+		Application.LoadLevel ("map_screen");
 	}
 }

@@ -4,12 +4,10 @@ using System.Collections;
 public class MonsterDefeated : MonoBehaviour {
 
 	public MonsterStatus monsterStatus;
-	public GameState gameState;
 	public MonsterSpawn monsterSpawn;
 
 	// Use this for initialization
 	void Start () {
-		gameState = GameObject.Find ("Main Camera").GetComponent<GameState> ();
 		monsterSpawn = GameObject.Find ("Main Camera").GetComponent<MonsterSpawn> ();
 	}
 	
@@ -19,8 +17,8 @@ public class MonsterDefeated : MonoBehaviour {
 	}
 
 	public void DefeatMonster() {
-		gameState.PlayerGold += monsterStatus.GoldDrop;
-		Debug.Log (gameState.PlayerGold);
+		GameState.PlayerGold += monsterStatus.GoldDrop;
+		Debug.Log (GameState.PlayerGold);
 		Destroy (gameObject);
 		monsterSpawn.Spawn ();
 	}

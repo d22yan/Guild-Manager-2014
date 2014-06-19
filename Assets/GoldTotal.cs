@@ -4,10 +4,9 @@ using System.Collections;
 public class GoldTotal : MonoBehaviour {
 
 	public GUIStyle style1;
-	public GameState gameState;
 
 	void OnGUI() {
-		GUI.Button(new Rect(120, 10, 100, 20), gameState.PlayerGold.ToString());
+		GUI.Button(new Rect(120, 10, 100, 20), GameState.PlayerGold.ToString());
 	}
 
 	// Use this for initialization

@@ -49,7 +49,6 @@
      <Compile Include="Assets\BackButton.cs" />
      <Compile Include="Assets\GameState.cs" />
      <Compile Include="Assets\GoldTotal.cs" />
-     <Compile Include="Assets\Menu.cs" />
      <Compile Include="Assets\MonsterAttack.cs" />
      <Compile Include="Assets\MonsterAttacked.cs" />
      <Compile Include="Assets\MonsterDefeated.cs" />
@@ -60,6 +59,7 @@
      <Compile Include="Assets\PlayerHPBar.cs" />
      <Compile Include="Assets\PlayerSpawn.cs" />
      <Compile Include="Assets\PlayerStatus.cs" />
+     <Compile Include="Assets\ResumeButton.cs" />
      <Compile Include="Assets\StatusBar.cs" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\enemies.xml" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\alienPink.xml" />

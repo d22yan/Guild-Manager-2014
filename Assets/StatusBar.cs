@@ -3,6 +3,10 @@ using System.Collections;
 
 public class StatusBar : MonoBehaviour {
 
+	void OnGUI() {
+
+	}
+
 	// Use this for initialization
 	void Start () {
 	

@@ -1,18 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameState : MonoBehaviour {
+public static class GameState{
 
-	public int PlayerGold {get; set;}
+	public static int PlayerGold {get; set;}
 
-	// Use this for initialization
-	void Start () {
-
+	static GameState() {
 		PlayerGold = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

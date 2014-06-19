@@ -5,10 +5,11 @@ public class MonsterAttack : MonoBehaviour {
 
 	public PlayerStatus playerStatus;
 	public MonsterStatus monsterStatus;
-
+	public PlayerDefeated playerDefeated;
 
 	// Use this for initialization
 	void Start () {
+		playerDefeated = GameObject.Find ("p1_walk01").GetComponent<PlayerDefeated> ();
 		playerStatus = GameObject.Find ("p1_walk01").GetComponent<PlayerStatus> ();
 		InvokeRepeating ("Attack", 2, monsterStatus.AttackSpeed);
 	}
@@ -19,6 +20,10 @@ public class MonsterAttack : MonoBehaviour {
 	}
 
 	void Attack() {
+
 		playerStatus.CurrentHealth -= monsterStatus.AttackDamage;
+		if (playerStatus.CurrentHealth < 1) {
+			playerDefeated.DefeatPlayer();
+		}
 	}
 }
