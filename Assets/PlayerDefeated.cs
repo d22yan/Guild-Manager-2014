@@ -8,8 +8,7 @@ public class PlayerDefeated : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//gameState = GameObject.Find ("Main Camera").GetComponent<GameState> ();
-		 //= GameObject.Find ("Main Camera").GetComponent<MonsterSpawn> ();
+
 	}
 	
 	// Update is called once per frame

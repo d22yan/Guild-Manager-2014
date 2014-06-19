@@ -50,6 +50,7 @@ public class GoldTotal : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		size = new Vector2 (100, 100);
 		isShopDisplayed = false;
 		DrawTab = DrawShopTab;
 	}
