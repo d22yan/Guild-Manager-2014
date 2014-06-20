@@ -4,9 +4,8 @@ using System.Collections;
 public class ResumeButton : MonoBehaviour {
 
 	void OnGUI() {
-		if (GUI.Button (new Rect (10, 70, 50, 30), "Resume")) {
-			Application.LoadLevel("battle_screen");
-			Debug.Log("Resume CLICKED");
+		if (GUI.Button (new Rect (0, 0, 70, 20), Constant.buttonResume)) {
+			Application.LoadLevel(Constant.sceneBattleScreen);
 		}
 	}
 

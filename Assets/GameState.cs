@@ -3,7 +3,7 @@ using System.Collections;
 
 public static class GameState{
 
-	public static int PlayerGold {get; set;}
+	public static int PlayerGold { get; set; }
     public static int HiredWarriors { get; set; }
     public static int HiredMages { get; set; }
     public static int HiredPriests { get; set; }

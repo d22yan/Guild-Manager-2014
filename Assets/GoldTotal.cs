@@ -52,7 +52,7 @@ public class GoldTotal : MonoBehaviour {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), statusItems[i].Texture);
             GUI.Label(new Rect(itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, itemDescriptionSize.x, itemDescriptionSize.y), statusItems[i].Description);
-            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), statusItems[i].Cost.ToString());
+            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + statusItems[i].Cost.ToString());
             if (GameState.PlayerGold >= statusItems[i].Cost) {
                 if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), shopItemTexture)) {
                     statusDelegates[i](statusItems[i].Increment);
@@ -71,7 +71,7 @@ public class GoldTotal : MonoBehaviour {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), hireItems[i].Texture);
             GUI.Label(new Rect(itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, itemDescriptionSize.x, itemDescriptionSize.y), hireItems[i].Description);
-            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), hireItems[i].Cost.ToString());
+            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + hireItems[i].Cost.ToString());
             if (GameState.PlayerGold >= hireItems[i].Cost) {
                 if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), shopItemTexture)) {
                     classDelegates[i](hireItems[i].Increment);
@@ -100,15 +100,15 @@ public class GoldTotal : MonoBehaviour {
             (i) => GameState.HiredPaladins += i
         };
 
-        ShopItem warrior = new ShopItem("Warrior", "Warrior description", 1, 1, warriorTexture);
-        ShopItem mage = new ShopItem("Mage", "Mage description", 1, 1, mageTexture);
-        ShopItem priest = new ShopItem("Priest", "Priest description", 1, 1, priestTexture);
-        ShopItem paladin = new ShopItem("Paladin", "Paladin description", 1, 1, paladinTexture);
+        ShopItem warrior = new ShopItem(Constant.itemTitleWarrior, Constant.itemDescriptionWarrior, Constant.itemCostWarrior, Constant.itemIncrementWarrior, warriorTexture);
+        ShopItem mage = new ShopItem(Constant.itemTitleMage, Constant.itemDescriptionMage, Constant.itemCostMage, Constant.itemIncrementMage, mageTexture);
+        ShopItem priest = new ShopItem(Constant.itemTitlePriest, Constant.itemDescriptionPriest, Constant.itemCostPriest, Constant.itemIncrementPriest, priestTexture);
+        ShopItem paladin = new ShopItem(Constant.itemTitlePaladin, Constant.itemDescriptionPaladin, Constant.itemCostPaladin, Constant.itemIncrementPaladin, paladinTexture);
 
-        ShopItem attack = new ShopItem("Attack", "attack description", 1, 1, attackTexture);
-        ShopItem defense = new ShopItem("Defense", "defense description", 1, 1, defenseTexture);
-        ShopItem health = new ShopItem("Health", "health description", 1, 1, healthTexture);
-        ShopItem critical = new ShopItem("Critical", "critical description", 1, 1, criticalTexture);
+        ShopItem attack = new ShopItem(Constant.itemTitleAttack, Constant.itemDescriptionAttack, Constant.itemCostAttack, Constant.itemIncrementAttack, attackTexture);
+        ShopItem defense = new ShopItem(Constant.itemTitleDefense, Constant.itemDescriptionDefense, Constant.itemCostDefense, Constant.itemIncrementDefense, defenseTexture);
+        ShopItem health = new ShopItem(Constant.itemTitleHealth, Constant.itemDescriptionHealth, Constant.itemCostHealth, Constant.itemIncrementHealth, healthTexture);
+        ShopItem critical = new ShopItem(Constant.itemTitleCritical, Constant.itemDescriptionCritical, Constant.itemCostCritical, Constant.itemIncrementCritical, criticalTexture);
 
         hireItems = new List<ShopItem>() {warrior, mage, priest, paladin };
         statusItems = new List<ShopItem>() {attack, defense, health, critical};
@@ -117,11 +117,11 @@ public class GoldTotal : MonoBehaviour {
     void InitializeVector() {
         boxPosition = new Vector2(0, 0);
         itemPosition = new Vector2(0, 0);
-        boxSize = new Vector2(Screen.width, Screen.height - (Screen.height * 0.2f + 25));
+        boxSize = new Vector2(Screen.width, Screen.height - (Screen.height * 0.2f + 20));
         buyButtonPosition = new Vector2 (Screen.width - 75, itemPosition.y + 70);
         buyButtonSize = new Vector2 (50, 20);
-        groupPosition = new Vector2(0, Screen.height * 0.2f + 25);
-        groupSize = new Vector2(Screen.width, Screen.height - (Screen.height * 0.2f + 25) );
+        groupPosition = new Vector2(0, Screen.height * 0.2f + 20);
+        groupSize = new Vector2(Screen.width, Screen.height - (Screen.height * 0.2f + 20) );
         iconPosition = new Vector2 (10, 10);
         itemSize = new Vector2(Screen.width, 100);
         iconSize = new Vector2 (itemSize.y - 20, itemSize.y - 20);
@@ -134,15 +134,15 @@ public class GoldTotal : MonoBehaviour {
     }
 
 	void OnGUI() {
-		if (GUI.Button (new Rect (120, 10, 100, 20), GameState.PlayerGold.ToString ())) {
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 50, 20), GameState.PlayerGold.ToString())) {
 			isShopDisplayed = !isShopDisplayed;
 		}
 
 		if (isShopDisplayed) {
-			if (GUI.Button (new Rect (tabButtonPosition.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), "Shop")) {
+			if (GUI.Button (new Rect (tabButtonPosition.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), Constant.buttonShop)) {
 				DrawTab = DrawShopTab;
 			}
-			if (GUI.Button (new Rect (tabButtonPosition.x + tabButtonSize.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), "Hire")) {
+			if (GUI.Button (new Rect (tabButtonPosition.x + tabButtonSize.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), Constant.buttonHire)) {
 				DrawTab = DrawHireTab;
 			}
 			DrawTab();

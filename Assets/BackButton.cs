@@ -4,8 +4,8 @@ using System.Collections;
 public class BackButton : MonoBehaviour {
 
 	void OnGUI() {
-		if (GUI.Button (new Rect (30, 5, 30, 30), "back")) {
-			Application.LoadLevel("map_screen");
+		if (GUI.Button (new Rect (0, 0, 70, 20), Constant.buttonBack)) {
+			Application.LoadLevel(Constant.sceneMapScreen);
 		}
 	}
 
