@@ -14,6 +14,6 @@ public static class GameState{
         HiredPaladins = 0;
         HiredPriests = 0;
         HiredWarriors = 0;
-		PlayerGold = 0;
+		PlayerGold = 50;
 	}
 }
