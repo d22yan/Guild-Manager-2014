@@ -3,14 +3,10 @@ using System.Collections;
 
 public class MonsterAttack : MonoBehaviour {
 
-	public PlayerStatus playerStatus;
 	public MonsterStatus monsterStatus;
-	public PlayerDefeated playerDefeated;
 
 	// Use this for initialization
 	void Start () {
-		playerDefeated = GameObject.Find ("p1_walk01").GetComponent<PlayerDefeated> ();
-		playerStatus = GameObject.Find ("p1_walk01").GetComponent<PlayerStatus> ();
 		InvokeRepeating ("Attack", 2, monsterStatus.AttackSpeed);
 	}
 	
@@ -20,10 +16,12 @@ public class MonsterAttack : MonoBehaviour {
 	}
 
 	void Attack() {
+        PlayerStatus.CurrentHealth -= monsterStatus.AttackDamage;
+		if (PlayerStatus.CurrentHealth < 1) {
+            GameState.PlayerGold -= (int)(GameState.PlayerGold * 0.1);
+            Application.LoadLevel("map_screen");
 
-		playerStatus.CurrentHealth -= monsterStatus.AttackDamage;
-		if (playerStatus.CurrentHealth < 1) {
-			playerDefeated.DefeatPlayer();
+            PlayerStatus.CurrentHealth = PlayerStatus.Health;
 		}
 	}
 }

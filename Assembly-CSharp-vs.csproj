@@ -55,10 +55,10 @@
      <Compile Include="Assets\MonsterHPBar.cs" />
      <Compile Include="Assets\MonsterSpawn.cs" />
      <Compile Include="Assets\MonsterStatus.cs" />
-     <Compile Include="Assets\PlayerDefeated.cs" />
      <Compile Include="Assets\PlayerHPBar.cs" />
      <Compile Include="Assets\PlayerStatus.cs" />
      <Compile Include="Assets\ResumeButton.cs" />
+     <Compile Include="Assets\ShopItem.cs" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\enemies.xml" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\alienPink.xml" />
      <None Include="Assets\Platformer Art Complete Pack_0\Extra animations and enemies\Spritesheets\alienBlue.xml" />

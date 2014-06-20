@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerStatus : MonoBehaviour {
-	public int Attack { get; set; }
-	public int Defense { get; set; }
-	public int Critical { get; set; }
-	public int Health { get; set; }
-	public int CurrentHealth { get; set; }
-	void Awake() {
+public static class PlayerStatus {
+	public static int Attack { get; set; }
+	public static int Defense { get; set; }
+	public static int Critical { get; set; }
+	public static int Health { get; set; }
+	public static int CurrentHealth { get; set; }
+	static PlayerStatus() {
 		Attack = 5;
 		Defense = 5;
 		Critical = 5;
