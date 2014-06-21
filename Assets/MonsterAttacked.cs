@@ -7,10 +7,16 @@ public class MonsterAttacked : MonoBehaviour {
 	public MonsterStatus monsterStatus;
 	public MonsterDefeated monsterDefeated;
 
+    private bool IsAttackingMonster;
+
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("AttackedByMage", 0, GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate());
-        InvokeRepeating("AttackedByArcher", 0, GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate());
+        IsAttackingMonster = false;
+        InvokeRepeating(
+            "AttackedByGuildMembers",
+            Constant.DelayGuildMemberInitialAttack,
+            GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate() + GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate()
+        );
 	}
 	
 	// Update is called once per frame
@@ -19,7 +25,6 @@ public class MonsterAttacked : MonoBehaviour {
 	}
 
 	void OnMouseUp() {
-		Debug.Log ("monster clicked");
 		DealDamage (GameState.State.PlayerStatus.getAttack());
 	}
 
@@ -27,16 +32,13 @@ public class MonsterAttacked : MonoBehaviour {
 		monsterStatus.CurrentHealth -= damage;
         DeathCheck();
 	}
-    void AttackedByMage()
+
+    void AttackedByGuildMembers()
     {
         monsterStatus.CurrentHealth -= GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveStat();
         DeathCheck();
     }
-    void AttackedByArcher()
-    {
-        monsterStatus.CurrentHealth -= GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat();
-        DeathCheck();
-    }
+
     void DeathCheck()
     {
         if (monsterStatus.CurrentHealth < 1)
