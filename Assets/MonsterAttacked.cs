@@ -7,8 +7,13 @@ public class MonsterAttacked : MonoBehaviour {
 	public MonsterStatus monsterStatus;
 	public MonsterDefeated monsterDefeated;
 
+    private float ImageScaleX;
+    private float ImageScaleY;
+
 	// Use this for initialization
 	void Start () {
+        ImageScaleX = transform.localScale.x;
+        ImageScaleY = transform.localScale.y;
         InvokeRepeating("AttackedByMage", GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate(), GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate());
         InvokeRepeating("AttackedByArcher", GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate(), GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate());
 	}
@@ -18,10 +23,16 @@ public class MonsterAttacked : MonoBehaviour {
         DeathCheck();
 	}
 
+    void OnMouseDown() {
+        transform.localScale = new Vector3(ImageScaleX * Constant.AnimateShrinkOnMonsterAttacked, ImageScaleY * Constant.AnimateShrinkOnMonsterAttacked, 0);
+    }
+
 	void OnMouseUp() {
-		Debug.Log ("monster clicked");
-		DealDamage (GameState.State.PlayerStatus.getAttack());
+        DealDamage (GameState.State.PlayerStatus.getAttack());
+        transform.localScale = new Vector3(ImageScaleX, ImageScaleY, 0);
 	}
+
+
 
 	void DealDamage(int damage) {
 		monsterStatus.CurrentHealth -= damage;
