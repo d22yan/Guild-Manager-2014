@@ -25,7 +25,7 @@ public class PlayerHPBar : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("asd2");
+		
 	}
 	
 	// Update is called once per frame

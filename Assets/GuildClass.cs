@@ -8,9 +8,9 @@ public class GuildClass {
     public int RateModifier { get; set; }
 
     public GuildClass() {
-        Quantity = 0;
-        Level = 1;
-        RateModifier = 1;
+        Quantity = Constant.InitialGuildClassQuantity;
+        Level = Constant.InitialGuildClassLevel;
+        RateModifier = Constant.InitialGuildClassRateModifier;
     }
 
     public int GetActiveStat() {

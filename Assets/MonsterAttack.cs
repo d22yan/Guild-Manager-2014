@@ -18,7 +18,7 @@ public class MonsterAttack : MonoBehaviour {
 	void Attack() {
         GameState.PlayerStatus.CurrentHealth -= monsterStatus.AttackDamage;
 		if (GameState.PlayerStatus.CurrentHealth < 1) {
-            GameState.PlayerGold -= (int)(GameState.PlayerGold * 0.1);
+            GameState.PlayerGold -= (int)(GameState.PlayerGold * Constant.RateGoldLossOnDeath);
             Application.LoadLevel("map_screen");
 
             GameState.PlayerStatus.CurrentHealth = GameState.PlayerStatus.getHealth();

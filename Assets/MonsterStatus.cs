@@ -9,10 +9,10 @@ public class MonsterStatus : MonoBehaviour {
 	public int AttackDamage {set; get;}
 	public int GoldDrop {set; get;}
 	void Awake() {
-		AttackSpeed = 1f;
-		AttackDamage = 1;
-		MaxHealth = 100;
-		CurrentHealth = 100;
-		GoldDrop = 5;
+		AttackSpeed = Constant.InitialMonsterAttackSpeed;
+		AttackDamage = Constant.InitialMonsterAttackDamage;
+		MaxHealth = Constant.InitialMonsterMaxHealth;
+		CurrentHealth = Constant.InitialMonsterCurrentHealth;
+		GoldDrop = Constant.InitialMonsterGoldDrop;
 	}
 }

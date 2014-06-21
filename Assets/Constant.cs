@@ -49,4 +49,16 @@ public static class Constant {
 	public static string itemDescriptionCritical = "critical description";
 	public static int itemCostCritical = 1;
 	public static int itemIncrementCritical = 1;
+
+	public static int InitialGuildClassQuantity = 0;
+	public static int InitialGuildClassLevel = 1;
+	public static int InitialGuildClassRateModifier = 1;
+
+	public static float RateGoldLossOnDeath = 0.1f;
+
+	public static int InitialMonsterAttackSpeed = 1;
+	public static int InitialMonsterAttackDamage = 1;
+	public static int InitialMonsterMaxHealth = 100;
+	public static int InitialMonsterCurrentHealth = 100;
+	public static int InitialMonsterGoldDrop = 5;
 }
