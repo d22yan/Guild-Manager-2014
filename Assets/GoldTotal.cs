@@ -86,31 +86,31 @@ public class GoldTotal : MonoBehaviour {
     void InitializeShopItems() {
         statusDelegates = new List<StatusDelegate>() { 
             (i) => GameState.State.PlayerStatus.setAttack(GameState.State.PlayerStatus.getAttack() + i),
+            (i) => GameState.State.PlayerStatus.setCritical(GameState.State.PlayerStatus.getCritical() + i),
             (i) => GameState.State.PlayerStatus.setDefense(GameState.State.PlayerStatus.getDefense() + i),
-            (i) => GameState.State.PlayerStatus.setHealth(GameState.State.PlayerStatus.getHealth() + i),
-            (i) => GameState.State.PlayerStatus.setCritical(GameState.State.PlayerStatus.getCritical() + i)
+            (i) => GameState.State.PlayerStatus.setHealth(GameState.State.PlayerStatus.getHealth() + i)
         };
 
         classDelegates = new List<ClassDelegate>() { 
             (i) => GameState.State.PlayerStatus.GuildStatus.Mage.Quantity += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Archer.Quantity += i,
             (i) => GameState.State.PlayerStatus.GuildStatus.Paladin.Quantity += i,
-            (i) => GameState.State.PlayerStatus.GuildStatus.Priest.Quantity += i,
-            (i) => GameState.State.PlayerStatus.GuildStatus.Archer.Quantity += i
-
+            (i) => GameState.State.PlayerStatus.GuildStatus.Priest.Quantity += i
+        };
+        
+        hireItems = new List<ShopItem>() { 
+            new ShopItem(Constant.itemTitleMage, Constant.itemDescriptionMage, Constant.itemCostMage, Constant.itemIncrementMage, mageTexture),
+            new ShopItem(Constant.itemTitleArcher, Constant.itemDescriptionArcher, Constant.itemCostArcher, Constant.itemIncrementArcher, archerTexture),
+            new ShopItem(Constant.itemTitlePaladin, Constant.itemDescriptionPaladin, Constant.itemCostPaladin, Constant.itemIncrementPaladin, paladinTexture),
+            new ShopItem(Constant.itemTitlePriest, Constant.itemDescriptionPriest, Constant.itemCostPriest, Constant.itemIncrementPriest, priestTexture)
         };
 
-        ShopItem archer = new ShopItem(Constant.itemTitleArcher, Constant.itemDescriptionArcher, Constant.itemCostArcher, Constant.itemIncrementArcher, archerTexture);
-        ShopItem mage = new ShopItem(Constant.itemTitleMage, Constant.itemDescriptionMage, Constant.itemCostMage, Constant.itemIncrementMage, mageTexture);
-        ShopItem priest = new ShopItem(Constant.itemTitlePriest, Constant.itemDescriptionPriest, Constant.itemCostPriest, Constant.itemIncrementPriest, priestTexture);
-        ShopItem paladin = new ShopItem(Constant.itemTitlePaladin, Constant.itemDescriptionPaladin, Constant.itemCostPaladin, Constant.itemIncrementPaladin, paladinTexture);
-
-        ShopItem attack = new ShopItem(Constant.itemTitleAttack, Constant.itemDescriptionAttack, Constant.itemCostAttack, Constant.itemIncrementAttack, attackTexture);
-        ShopItem defense = new ShopItem(Constant.itemTitleDefense, Constant.itemDescriptionDefense, Constant.itemCostDefense, Constant.itemIncrementDefense, defenseTexture);
-        ShopItem health = new ShopItem(Constant.itemTitleHealth, Constant.itemDescriptionHealth, Constant.itemCostHealth, Constant.itemIncrementHealth, healthTexture);
-        ShopItem critical = new ShopItem(Constant.itemTitleCritical, Constant.itemDescriptionCritical, Constant.itemCostCritical, Constant.itemIncrementCritical, criticalTexture);
-
-        hireItems = new List<ShopItem>() { mage, paladin, priest, archer };
-        statusItems = new List<ShopItem>() { attack, defense, health, critical };
+        statusItems = new List<ShopItem>() { 
+            new ShopItem(Constant.itemTitleAttack, Constant.itemDescriptionAttack, Constant.itemCostAttack, Constant.itemIncrementAttack, attackTexture),
+            new ShopItem(Constant.itemTitleCritical, Constant.itemDescriptionCritical, Constant.itemCostCritical, Constant.itemIncrementCritical, criticalTexture),
+            new ShopItem(Constant.itemTitleDefense, Constant.itemDescriptionDefense, Constant.itemCostDefense, Constant.itemIncrementDefense, defenseTexture),
+            new ShopItem(Constant.itemTitleHealth, Constant.itemDescriptionHealth, Constant.itemCostHealth, Constant.itemIncrementHealth, healthTexture)
+        };
     }
 
     void InitializeVector() {
