@@ -21,7 +21,7 @@ public class MonsterAttack : MonoBehaviour {
             GameState.State.PlayerGold -= (int)(GameState.State.PlayerGold * Constant.RateGoldLossOnDeath);
             Application.LoadLevel("map_screen");
 
-            GameState.State.PlayerStatus.CurrentHealth = GameState.State.PlayerStatus.getHealth();
+            GameState.State.PlayerStatus.CurrentHealth = GameState.State.PlayerStatus.GetTotalHealth();
 		}
 	}
 }

@@ -85,10 +85,10 @@ public class GoldTotal : MonoBehaviour {
 
     void InitializeShopItems() {
         statusDelegates = new List<StatusDelegate>() { 
-            (i) => GameState.State.PlayerStatus.setAttack(GameState.State.PlayerStatus.getAttack() + i),
-            (i) => GameState.State.PlayerStatus.setCritical(GameState.State.PlayerStatus.getCritical() + i),
-            (i) => GameState.State.PlayerStatus.setDefense(GameState.State.PlayerStatus.getDefense() + i),
-            (i) => GameState.State.PlayerStatus.setHealth(GameState.State.PlayerStatus.getHealth() + i)
+            (i) => GameState.State.PlayerStatus.Attack += i,
+            (i) => GameState.State.PlayerStatus.Critical += i,
+            (i) => GameState.State.PlayerStatus.Defense += i,
+            (i) => GameState.State.PlayerStatus.Health += i
         };
 
         classDelegates = new List<ClassDelegate>() { 
