@@ -67,7 +67,4 @@ public static class Constant {
 	public static int InitialMonsterMaxHealth = 100;
 	public static int InitialMonsterCurrentHealth = 100;
 	public static int InitialMonsterGoldDrop = 5;
-
-    public static int DelayGuildMemberInitialAttack = 1;
-    public static int DelayMonsterInitialAttack = 1;
 }

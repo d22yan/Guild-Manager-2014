@@ -9,8 +9,8 @@ public class MonsterAttacked : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("AttackedByMage", 0, GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate());
-        InvokeRepeating("AttackedByArcher", 0, GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate());
+        InvokeRepeating("AttackedByMage", GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate(), GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveRate());
+        InvokeRepeating("AttackedByArcher", GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate(), GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveRate());
 	}
 	
 	// Update is called once per frame
