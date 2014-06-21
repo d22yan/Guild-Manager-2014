@@ -7,7 +7,7 @@ public class MonsterAttack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("Attack", Constant.DelayMonsterInitialAttack, monsterStatus.AttackSpeed);
+        InvokeRepeating("Attack", monsterStatus.AttackSpeed, monsterStatus.AttackSpeed);
 	}
 	
 	// Update is called once per frame
