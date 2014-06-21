@@ -17,8 +17,8 @@ public class MonsterDefeated : MonoBehaviour {
 	}
 
 	public void DefeatMonster() {
-		GameState.PlayerGold += monsterStatus.GoldDrop;
-		Debug.Log (GameState.PlayerGold);
+		GameState.State.PlayerGold += monsterStatus.GoldDrop;
+		Debug.Log (GameState.State.PlayerGold);
 		Destroy (gameObject);
 		monsterSpawn.Spawn ();
 	}

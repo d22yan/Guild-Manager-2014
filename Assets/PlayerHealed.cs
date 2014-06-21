@@ -5,8 +5,8 @@ public class PlayerHealed : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        InvokeRepeating("HealedByPaladin", 0, GameState.PlayerStatus.GuildStatus.Paladin.GetPassiveRate());
-        InvokeRepeating("HealedByPriest", 0, GameState.PlayerStatus.GuildStatus.Priest.GetPassiveRate());
+        InvokeRepeating("HealedByPaladin", 0, GameState.State.PlayerStatus.GuildStatus.Paladin.GetPassiveRate());
+        InvokeRepeating("HealedByPriest", 0, GameState.State.PlayerStatus.GuildStatus.Priest.GetPassiveRate());
 	}
 	
 	// Update is called once per frame
@@ -16,20 +16,20 @@ public class PlayerHealed : MonoBehaviour {
 
     void HealthCheck()
     {
-        if (GameState.PlayerStatus.CurrentHealth > GameState.PlayerStatus.getHealth())
+        if (GameState.State.PlayerStatus.CurrentHealth > GameState.State.PlayerStatus.getHealth())
         {
-            GameState.PlayerStatus.CurrentHealth = GameState.PlayerStatus.getHealth();
+            GameState.State.PlayerStatus.CurrentHealth = GameState.State.PlayerStatus.getHealth();
         }
     }
 
     void HealedByPaladin()
     {
-        GameState.PlayerStatus.CurrentHealth += GameState.PlayerStatus.GuildStatus.Paladin.GetPassiveStat();
+        GameState.State.PlayerStatus.CurrentHealth += GameState.State.PlayerStatus.GuildStatus.Paladin.GetPassiveStat();
         HealthCheck();
     }
     void HealedByPriest()
     {
-        GameState.PlayerStatus.CurrentHealth += GameState.PlayerStatus.GuildStatus.Priest.GetPassiveStat();
+        GameState.State.PlayerStatus.CurrentHealth += GameState.State.PlayerStatus.GuildStatus.Priest.GetPassiveStat();
         HealthCheck();
     }
 }

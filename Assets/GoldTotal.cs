@@ -52,12 +52,12 @@ public class GoldTotal : MonoBehaviour {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), statusItems[i].Texture);
             GUI.Label(new Rect(itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, itemDescriptionSize.x, itemDescriptionSize.y), statusItems[i].Description);
-            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + GameState.ItemCosts[statusItems[i].Name].ToString());
-            if (GameState.PlayerGold >= GameState.ItemCosts[statusItems[i].Name]) {
+            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + GameState.State.ItemCosts[statusItems[i].Name].ToString());
+            if (GameState.State.PlayerGold >= GameState.State.ItemCosts[statusItems[i].Name]) {
                 if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), shopItemTexture)) {
                     statusDelegates[i](statusItems[i].Increment);
-                    GameState.PlayerGold -= GameState.ItemCosts[statusItems[i].Name];
-                    GameState.ItemCosts[statusItems[i].Name]++;
+                    GameState.State.PlayerGold -= GameState.State.ItemCosts[statusItems[i].Name];
+                    GameState.State.ItemCosts[statusItems[i].Name]++;
                 }
             }
         }
@@ -71,12 +71,12 @@ public class GoldTotal : MonoBehaviour {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), hireItems[i].Texture);
             GUI.Label(new Rect(itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, itemDescriptionSize.x, itemDescriptionSize.y), hireItems[i].Description);
-            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + GameState.HireCosts[hireItems[i].Name].ToString());
-            if (GameState.PlayerGold >= GameState.HireCosts[hireItems[i].Name]) {
+            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + GameState.State.HireCosts[hireItems[i].Name].ToString());
+            if (GameState.State.PlayerGold >= GameState.State.HireCosts[hireItems[i].Name]) {
                 if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), shopItemTexture)) {
                     classDelegates[i](hireItems[i].Increment);
-                    GameState.PlayerGold -= GameState.HireCosts[hireItems[i].Name];
-                    GameState.HireCosts[hireItems[i].Name]++;
+                    GameState.State.PlayerGold -= GameState.State.HireCosts[hireItems[i].Name];
+                    GameState.State.HireCosts[hireItems[i].Name]++;
                 }
             }
         }
@@ -85,17 +85,17 @@ public class GoldTotal : MonoBehaviour {
 
     void InitializeShopItems() {
         statusDelegates = new List<StatusDelegate>() { 
-            (i) => GameState.PlayerStatus.setAttack(GameState.PlayerStatus.getAttack() + i),
-            (i) => GameState.PlayerStatus.setDefense(GameState.PlayerStatus.getDefense() + i),
-            (i) => GameState.PlayerStatus.setHealth(GameState.PlayerStatus.getHealth() + i),
-            (i) => GameState.PlayerStatus.setCritical(GameState.PlayerStatus.getCritical() + i)
+            (i) => GameState.State.PlayerStatus.setAttack(GameState.State.PlayerStatus.getAttack() + i),
+            (i) => GameState.State.PlayerStatus.setDefense(GameState.State.PlayerStatus.getDefense() + i),
+            (i) => GameState.State.PlayerStatus.setHealth(GameState.State.PlayerStatus.getHealth() + i),
+            (i) => GameState.State.PlayerStatus.setCritical(GameState.State.PlayerStatus.getCritical() + i)
         };
 
         classDelegates = new List<ClassDelegate>() { 
-            (i) => GameState.PlayerStatus.GuildStatus.Mage.Quantity += i,
-            (i) => GameState.PlayerStatus.GuildStatus.Paladin.Quantity += i,
-            (i) => GameState.PlayerStatus.GuildStatus.Priest.Quantity += i,
-            (i) => GameState.PlayerStatus.GuildStatus.Archer.Quantity += i
+            (i) => GameState.State.PlayerStatus.GuildStatus.Mage.Quantity += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Paladin.Quantity += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Priest.Quantity += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Archer.Quantity += i
 
         };
 
@@ -133,7 +133,7 @@ public class GoldTotal : MonoBehaviour {
     }
 
 	void OnGUI() {
-		if (GUI.Button (new Rect (Screen.width - 50, 0, 50, 20), GameState.PlayerGold.ToString())) {
+		if (GUI.Button (new Rect (Screen.width - 50, 0, 50, 20), GameState.State.PlayerGold.ToString())) {
 			isShopDisplayed = !isShopDisplayed;
 		}
 
