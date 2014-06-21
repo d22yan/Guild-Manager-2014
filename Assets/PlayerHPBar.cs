@@ -30,6 +30,6 @@ public class PlayerHPBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        barDisplay = (float)GameState.PlayerStatus.CurrentHealth / GameState.PlayerStatus.Health;
+        barDisplay = (float)GameState.PlayerStatus.CurrentHealth / GameState.PlayerStatus.getHealth();
 	}
 }

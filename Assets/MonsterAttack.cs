@@ -7,7 +7,7 @@ public class MonsterAttack : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		InvokeRepeating ("Attack", 2, monsterStatus.AttackSpeed);
+		InvokeRepeating ("Attack", 0, monsterStatus.AttackSpeed);
 	}
 	
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class MonsterAttack : MonoBehaviour {
             GameState.PlayerGold -= (int)(GameState.PlayerGold * 0.1);
             Application.LoadLevel("map_screen");
 
-            GameState.PlayerStatus.CurrentHealth = GameState.PlayerStatus.Health;
+            GameState.PlayerStatus.CurrentHealth = GameState.PlayerStatus.getHealth();
 		}
 	}
 }

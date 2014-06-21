@@ -9,7 +9,7 @@ public class MonsterStatus : MonoBehaviour {
 	public int AttackDamage {set; get;}
 	public int GoldDrop {set; get;}
 	void Awake() {
-		AttackSpeed = 0.1f;
+		AttackSpeed = 1f;
 		AttackDamage = 1;
 		MaxHealth = 100;
 		CurrentHealth = 100;

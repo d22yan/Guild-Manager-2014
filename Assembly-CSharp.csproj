@@ -50,6 +50,7 @@
      <Compile Include="Assets\Constant.cs" />
      <Compile Include="Assets\GameState.cs" />
      <Compile Include="Assets\GoldTotal.cs" />
+     <Compile Include="Assets\GuildClass.cs" />
      <Compile Include="Assets\GuildStatus.cs" />
      <Compile Include="Assets\MonsterAttack.cs" />
      <Compile Include="Assets\MonsterAttacked.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\MonsterSpawn.cs" />
      <Compile Include="Assets\MonsterStatus.cs" />
      <Compile Include="Assets\PlayerHPBar.cs" />
+     <Compile Include="Assets\PlayerHealed.cs" />
      <Compile Include="Assets\PlayerStatus.cs" />
      <Compile Include="Assets\ResumeButton.cs" />
      <Compile Include="Assets\ShopItem.cs" />

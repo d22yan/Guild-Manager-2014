@@ -10,7 +10,7 @@ public class GoldTotal : MonoBehaviour {
     public Texture defenseTexture;
     public Texture healthTexture;
     public Texture criticalTexture;
-    public Texture warriorTexture;
+    public Texture archerTexture;
     public Texture priestTexture;
     public Texture mageTexture;
     public Texture paladinTexture;
@@ -37,7 +37,7 @@ public class GoldTotal : MonoBehaviour {
     public delegate void drawTabDelegate();
     public drawTabDelegate DrawTab;
 
-    delegate int StatusDelegate(int increment);
+    delegate void StatusDelegate(int increment);
     List<StatusDelegate> statusDelegates;
     delegate int ClassDelegate(int increment);
     List<ClassDelegate> classDelegates;
@@ -84,23 +84,22 @@ public class GoldTotal : MonoBehaviour {
 	}
 
     void InitializeShopItems() {
-        statusDelegates = new List<StatusDelegate>() 
-        { 
-            (i) => GameState.PlayerStatus.Attack += i,
-            (i) => GameState.PlayerStatus.Defense += i,
-            (i) => GameState.PlayerStatus.Health += i,
-            (i) => GameState.PlayerStatus.Critical += i
+        statusDelegates = new List<StatusDelegate>() { 
+            (i) => GameState.PlayerStatus.setAttack(GameState.PlayerStatus.getAttack() + i),
+            (i) => GameState.PlayerStatus.setDefense(GameState.PlayerStatus.getDefense() + i),
+            (i) => GameState.PlayerStatus.setHealth(GameState.PlayerStatus.getHealth() + i),
+            (i) => GameState.PlayerStatus.setCritical(GameState.PlayerStatus.getCritical() + i)
         };
 
-        classDelegates = new List<ClassDelegate>() 
-        { 
-            (i) => GameState.GuildStatus.HiredArcher += i,
-            (i) => GameState.GuildStatus.HiredMages += i,
-            (i) => GameState.GuildStatus.HiredPriests += i,
-            (i) => GameState.GuildStatus.HiredPaladins += i
+        classDelegates = new List<ClassDelegate>() { 
+            (i) => GameState.PlayerStatus.GuildStatus.Mage.Quantity += i,
+            (i) => GameState.PlayerStatus.GuildStatus.Paladin.Quantity += i,
+            (i) => GameState.PlayerStatus.GuildStatus.Priest.Quantity += i,
+            (i) => GameState.PlayerStatus.GuildStatus.Archer.Quantity += i
+
         };
 
-        ShopItem warrior = new ShopItem(Constant.itemTitleArcher, Constant.itemDescriptionWarrior, Constant.itemCostWarrior, Constant.itemIncrementWarrior, warriorTexture);
+        ShopItem archer = new ShopItem(Constant.itemTitleArcher, Constant.itemDescriptionArcher, Constant.itemCostArcher, Constant.itemIncrementArcher, archerTexture);
         ShopItem mage = new ShopItem(Constant.itemTitleMage, Constant.itemDescriptionMage, Constant.itemCostMage, Constant.itemIncrementMage, mageTexture);
         ShopItem priest = new ShopItem(Constant.itemTitlePriest, Constant.itemDescriptionPriest, Constant.itemCostPriest, Constant.itemIncrementPriest, priestTexture);
         ShopItem paladin = new ShopItem(Constant.itemTitlePaladin, Constant.itemDescriptionPaladin, Constant.itemCostPaladin, Constant.itemIncrementPaladin, paladinTexture);
@@ -110,8 +109,8 @@ public class GoldTotal : MonoBehaviour {
         ShopItem health = new ShopItem(Constant.itemTitleHealth, Constant.itemDescriptionHealth, Constant.itemCostHealth, Constant.itemIncrementHealth, healthTexture);
         ShopItem critical = new ShopItem(Constant.itemTitleCritical, Constant.itemDescriptionCritical, Constant.itemCostCritical, Constant.itemIncrementCritical, criticalTexture);
 
-        hireItems = new List<ShopItem>() {warrior, mage, priest, paladin };
-        statusItems = new List<ShopItem>() {attack, defense, health, critical};
+        hireItems = new List<ShopItem>() { mage, paladin, priest, archer };
+        statusItems = new List<ShopItem>() { attack, defense, health, critical };
     }
 
     void InitializeVector() {

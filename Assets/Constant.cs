@@ -11,9 +11,9 @@ public static class Constant {
 	public static string sceneMapScreen = "map_screen";
 
 	public static string itemTitleArcher = "Warrior";
-	public static string itemDescriptionWarrior = "warrior description";
-	public static int itemCostWarrior = 1;
-	public static int itemIncrementWarrior = 1;
+	public static string itemDescriptionArcher = "archer description";
+	public static int itemCostArcher = 1;
+	public static int itemIncrementArcher = 1;
 
 	public static string itemTitleMage = "Mage";
 	public static string itemDescriptionMage = "mage description";
