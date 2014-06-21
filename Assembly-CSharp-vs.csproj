@@ -50,6 +50,7 @@
      <Compile Include="Assets\Constant.cs" />
      <Compile Include="Assets\GameState.cs" />
      <Compile Include="Assets\GoldTotal.cs" />
+     <Compile Include="Assets\GuildStatus.cs" />
      <Compile Include="Assets\MonsterAttack.cs" />
      <Compile Include="Assets\MonsterAttacked.cs" />
      <Compile Include="Assets\MonsterDefeated.cs" />

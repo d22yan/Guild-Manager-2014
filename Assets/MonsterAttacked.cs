@@ -19,7 +19,7 @@ public class MonsterAttacked : MonoBehaviour {
 
 	void OnMouseUp() {
 		Debug.Log ("monster clicked");
-		DealDamage (PlayerStatus.Attack);
+		DealDamage (GameState.PlayerStatus.Attack);
 	}
 
 	void DealDamage(int damage) {

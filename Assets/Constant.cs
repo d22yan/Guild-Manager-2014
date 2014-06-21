@@ -10,7 +10,7 @@ public static class Constant {
 	public static string sceneBattleScreen = "battle_screen";
 	public static string sceneMapScreen = "map_screen";
 
-	public static string itemTitleWarrior = "Warrior";
+	public static string itemTitleArcher = "Warrior";
 	public static string itemDescriptionWarrior = "warrior description";
 	public static int itemCostWarrior = 1;
 	public static int itemIncrementWarrior = 1;

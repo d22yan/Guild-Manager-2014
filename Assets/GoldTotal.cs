@@ -52,12 +52,12 @@ public class GoldTotal : MonoBehaviour {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), statusItems[i].Texture);
             GUI.Label(new Rect(itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, itemDescriptionSize.x, itemDescriptionSize.y), statusItems[i].Description);
-            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + statusItems[i].Cost.ToString());
-            if (GameState.PlayerGold >= statusItems[i].Cost) {
+            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + GameState.ItemCosts[statusItems[i].Name].ToString());
+            if (GameState.PlayerGold >= GameState.ItemCosts[statusItems[i].Name]) {
                 if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), shopItemTexture)) {
                     statusDelegates[i](statusItems[i].Increment);
-                    GameState.PlayerGold -= statusItems[i].Cost;
-                    statusItems[i].Cost++;
+                    GameState.PlayerGold -= GameState.ItemCosts[statusItems[i].Name];
+                    GameState.ItemCosts[statusItems[i].Name]++;
                 }
             }
         }
@@ -71,12 +71,12 @@ public class GoldTotal : MonoBehaviour {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), hireItems[i].Texture);
             GUI.Label(new Rect(itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, itemDescriptionSize.x, itemDescriptionSize.y), hireItems[i].Description);
-            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + hireItems[i].Cost.ToString());
-            if (GameState.PlayerGold >= hireItems[i].Cost) {
+            GUI.Label(new Rect(buyButtonPosition.x - 20, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "$" + GameState.HireCosts[hireItems[i].Name].ToString());
+            if (GameState.PlayerGold >= GameState.HireCosts[hireItems[i].Name]) {
                 if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), shopItemTexture)) {
                     classDelegates[i](hireItems[i].Increment);
-                    GameState.PlayerGold -= hireItems[i].Cost;
-                    hireItems[i].Cost++;
+                    GameState.PlayerGold -= GameState.HireCosts[hireItems[i].Name];
+                    GameState.HireCosts[hireItems[i].Name]++;
                 }
             }
         }
@@ -86,21 +86,21 @@ public class GoldTotal : MonoBehaviour {
     void InitializeShopItems() {
         statusDelegates = new List<StatusDelegate>() 
         { 
-            (i) => PlayerStatus.Attack += i,
-            (i) => PlayerStatus.Defense += i,
-            (i) => PlayerStatus.Health += i,
-            (i) => PlayerStatus.Critical += i
+            (i) => GameState.PlayerStatus.Attack += i,
+            (i) => GameState.PlayerStatus.Defense += i,
+            (i) => GameState.PlayerStatus.Health += i,
+            (i) => GameState.PlayerStatus.Critical += i
         };
 
         classDelegates = new List<ClassDelegate>() 
         { 
-            (i) => GameState.HiredWarriors += i,
-            (i) => GameState.HiredMages += i,
-            (i) => GameState.HiredPriests += i,
-            (i) => GameState.HiredPaladins += i
+            (i) => GameState.GuildStatus.HiredArcher += i,
+            (i) => GameState.GuildStatus.HiredMages += i,
+            (i) => GameState.GuildStatus.HiredPriests += i,
+            (i) => GameState.GuildStatus.HiredPaladins += i
         };
 
-        ShopItem warrior = new ShopItem(Constant.itemTitleWarrior, Constant.itemDescriptionWarrior, Constant.itemCostWarrior, Constant.itemIncrementWarrior, warriorTexture);
+        ShopItem warrior = new ShopItem(Constant.itemTitleArcher, Constant.itemDescriptionWarrior, Constant.itemCostWarrior, Constant.itemIncrementWarrior, warriorTexture);
         ShopItem mage = new ShopItem(Constant.itemTitleMage, Constant.itemDescriptionMage, Constant.itemCostMage, Constant.itemIncrementMage, mageTexture);
         ShopItem priest = new ShopItem(Constant.itemTitlePriest, Constant.itemDescriptionPriest, Constant.itemCostPriest, Constant.itemIncrementPriest, priestTexture);
         ShopItem paladin = new ShopItem(Constant.itemTitlePaladin, Constant.itemDescriptionPaladin, Constant.itemCostPaladin, Constant.itemIncrementPaladin, paladinTexture);
