@@ -50,6 +50,12 @@ public static class Constant {
 	public static int itemCostCritical = 1;
 	public static int itemIncrementCritical = 1;
 
+    public static int InitialPlayerGold = 1000;
+    public static int InitialPlayerAttack = 1;
+    public static int InitialPlayerDefense = 1;
+    public static int InitialPlayerCritical = 1;
+    public static int InitialPlayerHealth = 100;
+
 	public static int InitialGuildClassQuantity = 0;
 	public static int InitialGuildClassLevel = 1;
 	public static int InitialGuildClassRateModifier = 1;
@@ -61,4 +67,7 @@ public static class Constant {
 	public static int InitialMonsterMaxHealth = 100;
 	public static int InitialMonsterCurrentHealth = 100;
 	public static int InitialMonsterGoldDrop = 5;
+
+    public static int DelayGuildMemberInitialAttack = 1;
+    public static int DelayMonsterInitialAttack = 1;
 }

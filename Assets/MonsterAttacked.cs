@@ -15,7 +15,7 @@ public class MonsterAttacked : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        DeathCheck();
 	}
 
 	void OnMouseUp() {
@@ -25,17 +25,14 @@ public class MonsterAttacked : MonoBehaviour {
 
 	void DealDamage(int damage) {
 		monsterStatus.CurrentHealth -= damage;
-        DeathCheck();
 	}
     void AttackedByMage()
     {
         monsterStatus.CurrentHealth -= GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveStat();
-        DeathCheck();
     }
     void AttackedByArcher()
     {
         monsterStatus.CurrentHealth -= GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat();
-        DeathCheck();
     }
     void DeathCheck()
     {

@@ -17,9 +17,14 @@ public class GameState : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             State = this;
 
-            PlayerGold = 50;
+            PlayerGold = Constant.InitialPlayerGold;
 
-            PlayerStatus = new PlayerStatus(1, 1, 1, 100);
+            PlayerStatus = new PlayerStatus(
+                Constant.InitialPlayerAttack, 
+                Constant.InitialPlayerDefense,
+                Constant.InitialPlayerCritical,
+                Constant.InitialPlayerHealth
+            );
             ItemCosts = new Dictionary<string, int>();
             HireCosts = new Dictionary<string, int>();
 

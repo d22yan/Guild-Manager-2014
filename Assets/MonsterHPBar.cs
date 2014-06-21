@@ -26,7 +26,7 @@ public class MonsterHPBar : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("asd");
+
 	}
 	
 	// Update is called once per frame
