@@ -28,7 +28,7 @@ public class MonsterAttacked : MonoBehaviour {
     }
 
 	void OnMouseUp() {
-        DealDamage (GameState.State.PlayerStatus.getAttack());
+        DealDamage (GameState.State.PlayerStatus.GetTotalAttack());
         transform.localScale = new Vector3(ImageScaleX, ImageScaleY, 0);
 	}
 

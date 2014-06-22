@@ -16,9 +16,9 @@ public class PlayerHealed : MonoBehaviour {
 
     void HealthCheck()
     {
-        if (GameState.State.PlayerStatus.CurrentHealth > GameState.State.PlayerStatus.getHealth())
+        if (GameState.State.PlayerStatus.CurrentHealth > GameState.State.PlayerStatus.GetTotalHealth())
         {
-            GameState.State.PlayerStatus.CurrentHealth = GameState.State.PlayerStatus.getHealth();
+            GameState.State.PlayerStatus.CurrentHealth = GameState.State.PlayerStatus.GetTotalHealth();
         }
     }
 
