@@ -35,7 +35,7 @@ public static class Constant {
     public static string itemPassiveTypePaladin = "Healing";
 
 	public static string itemTitleAttack = "Attack";
-	public static string itemDescriptionAttack = "Attack increases your damage against monsters.";
+	public static string itemDescriptionAttack = "Attack increases your damage on monsters.";
 	public static int itemCostAttack = 1;
 	public static int itemIncrementAttack = 1;
 
@@ -50,7 +50,7 @@ public static class Constant {
 	public static int itemIncrementHealth = 1;
 
 	public static string itemTitleCritical = "Critical";
-	public static string itemDescriptionCritical = "Critical increases your critical hit chance and damage.";
+	public static string itemDescriptionCritical = "Critical increases your critical hit damage.";
 	public static int itemCostCritical = 1;
 	public static int itemIncrementCritical = 1;
 
