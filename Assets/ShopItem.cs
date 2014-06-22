@@ -17,5 +17,4 @@ public class ShopItem {
         this.Name = name;
         this.Texture = texture;
     }
-
 }
