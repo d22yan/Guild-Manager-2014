@@ -11,46 +11,46 @@ public static class Constant {
 	public static string sceneMapScreen = "map_screen";
 
     public static string itemTitleArcher = "Archer";
-	public static string itemDescriptionArcher = "archer description";
+	public static string itemDescriptionArcher = "Archers grant bonus Critical and deal damage.";
 	public static int itemCostArcher = 1;
 	public static int itemIncrementArcher = 1;
     public static string itemPassiveTypeArcher = "Damage";
 
 	public static string itemTitleMage = "Mage";
-	public static string itemDescriptionMage = "mage description";
+    public static string itemDescriptionMage = "Mages grant bonus Attack and deal damage.";
 	public static int itemCostMage = 1;
 	public static int itemIncrementMage = 1;
     public static string itemPassiveTypeMage = "Damage";
 
 	public static string itemTitlePriest = "Priest";
-	public static string itemDescriptionPriest = "priest description";
+    public static string itemDescriptionPriest = "Priests grant bonus Health and perform healing.";
 	public static int itemCostPriest = 1;
 	public static int itemIncrementPriest = 1;
     public static string itemPassiveTypePriest = "Healing";
 
 	public static string itemTitlePaladin = "Paladin";
-	public static string itemDescriptionPaladin = "paladin description";
+    public static string itemDescriptionPaladin = "Priests grant bonus Defense and perform healing.";
 	public static int itemCostPaladin = 1;
 	public static int itemIncrementPaladin = 1;
     public static string itemPassiveTypePaladin = "Healing";
 
 	public static string itemTitleAttack = "Attack";
-	public static string itemDescriptionAttack = "attack description";
+	public static string itemDescriptionAttack = "Attack increases your damage against monsters.";
 	public static int itemCostAttack = 1;
 	public static int itemIncrementAttack = 1;
 
 	public static string itemTitleDefense = "Defense";
-	public static string itemDescriptionDefense = "defense description";
+    public static string itemDescriptionDefense = "Defense increases your resistance to damage.";
 	public static int itemCostDefense = 1;
 	public static int itemIncrementDefense = 1;
 
 	public static string itemTitleHealth = "Health";
-	public static string itemDescriptionHealth = "health description";
+    public static string itemDescriptionHealth = "Health increases your maximum hit points.";
 	public static int itemCostHealth = 1;
 	public static int itemIncrementHealth = 1;
 
 	public static string itemTitleCritical = "Critical";
-	public static string itemDescriptionCritical = "critical description";
+	public static string itemDescriptionCritical = "Critical increases your critical hit chance and damage.";
 	public static int itemCostCritical = 1;
 	public static int itemIncrementCritical = 1;
 
