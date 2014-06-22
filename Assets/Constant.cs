@@ -29,7 +29,7 @@ public static class Constant {
     public static string itemPassiveTypePriest = "Healing";
 
 	public static string itemTitlePaladin = "Paladin";
-    public static string itemDescriptionPaladin = "Priests grant bonus Defense and perform healing.";
+    public static string itemDescriptionPaladin = "Paladin grant bonus Defense and perform healing.";
 	public static int itemCostPaladin = 1;
 	public static int itemIncrementPaladin = 1;
     public static string itemPassiveTypePaladin = "Healing";
