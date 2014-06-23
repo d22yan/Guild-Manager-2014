@@ -11,6 +11,7 @@ public class MonsterAttacked : MonoBehaviour {
     private Vector2 InitialPosition;
     
     public GameObject DamageBox;
+	public Transform blood;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,8 @@ public class MonsterAttacked : MonoBehaviour {
 	}
 
     void OnMouseDown() {
+		Transform bloodEffect = (Transform) Instantiate (blood, transform.position, transform.rotation);
+		Destroy (bloodEffect.gameObject, 2);
         transform.localScale = new Vector3(InitialScale.x * Constant.AnimateShrinkOnMonsterAttacked, InitialScale.y * Constant.AnimateShrinkOnMonsterAttacked, 0);
     }
 
