@@ -5,8 +5,8 @@ public class MonsterHPBar : MonoBehaviour {
 
 	public MonsterStatus monsterStatus;
 	float barDisplay = 1;
-	Vector2 pos = new Vector2(20,40);
-	Vector2 size = new Vector2(60,20);
+	Vector2 pos = new Vector2((Screen.width/5)*2,Screen.height/4);
+	Vector2 size = new Vector2((Screen.width/5),20);
 	public Texture2D progressBarEmpty;
 	public Texture2D progressBarFull;
 
@@ -31,7 +31,7 @@ public class MonsterHPBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		barDisplay = (float)monsterStatus.CurrentHealth / 100;
+		barDisplay = (float)monsterStatus.CurrentHealth / monsterStatus.MaxHealth;
 	}
 	
 }

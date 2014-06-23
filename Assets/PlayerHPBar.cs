@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerHPBar : MonoBehaviour {
 
 	float barDisplay = 1;
-	Vector2 pos = new Vector2(20,60);
-	Vector2 size = new Vector2(60,20);
+	Vector2 pos = new Vector2((Screen.width/4),Screen.height-23);
+	Vector2 size = new Vector2((Screen.width/4) * 2,20);
 	public Texture2D progressBarEmpty;
 	public Texture2D progressBarFull;
 	
