@@ -54,7 +54,8 @@ public class GoldTotal : MonoBehaviour {
 
     void DrawShopTab() {
         GUI.BeginGroup(new Rect (groupPosition.x, groupPosition.y, groupSize.x, groupSize.y));
-        GUI.Box(new Rect (boxPosition.x, boxPosition.y, boxSize.x, boxSize.y), shopTexture);
+        GUI.skin = skin;
+        GUI.Box(new Rect(boxPosition.x, boxPosition.y, boxSize.x, boxSize.y), shopTexture);
         for (int i = 0; i < shopItems.Capacity; i++) {
             GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
             GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), shopItems[i].Texture);
@@ -180,6 +181,8 @@ public class GoldTotal : MonoBehaviour {
     }
 
 	void OnGUI() {
+        GUI.skin = skin;
+
         if (GUI.Button(new Rect(Screen.width - 50, 0, 50, 20), "$" + GameState.State.PlayerGold.ToString()))
         {
 			isShopDisplayed = !isShopDisplayed;
