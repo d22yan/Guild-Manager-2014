@@ -2,7 +2,18 @@ fileFormatVersion: 2
 guid: f1d52effe8aaf31409d8c3970e383a58
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - skin: {fileID: 11400000, guid: 7822b27766c40cc43a0d7a7d2478ee97, type: 2}
+  - shopTexture: {instanceID: 0}
+  - shopItemTexture: {instanceID: 0}
+  - attackTexture: {instanceID: 0}
+  - defenseTexture: {instanceID: 0}
+  - healthTexture: {instanceID: 0}
+  - criticalTexture: {instanceID: 0}
+  - archerTexture: {instanceID: 0}
+  - priestTexture: {instanceID: 0}
+  - mageTexture: {instanceID: 0}
+  - paladinTexture: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

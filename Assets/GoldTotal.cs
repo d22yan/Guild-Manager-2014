@@ -4,6 +4,8 @@ using System.Linq.Expressions;
 using System.Collections.Generic;
 
 public class GoldTotal : MonoBehaviour {
+    public GUISkin skin;
+
 	public Texture shopTexture;
 	public Texture shopItemTexture;
     public Texture attackTexture;
