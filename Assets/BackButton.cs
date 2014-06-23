@@ -2,9 +2,11 @@
 using System.Collections;
 
 public class BackButton : MonoBehaviour {
+    public GUISkin blueSkin;
 
 	void OnGUI() {
-		if (GUI.Button (new Rect (0, 0, 70, 20), Constant.buttonBack)) {
+        GUI.skin = blueSkin;
+		if (GUI.Button (new Rect (0, 0, 100, 40), Constant.buttonBack)) {
 			Application.LoadLevel(Constant.sceneMapScreen);
 		}
 	}

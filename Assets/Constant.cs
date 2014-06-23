@@ -11,25 +11,25 @@ public static class Constant {
 	public static string sceneMapScreen = "map_screen";
 
     public static string itemTitleArcher = "Archer";
-	public static string itemDescriptionArcher = "Archers grant bonus Critical and deal damage.";
+    public static string itemDescriptionArcher = "Archers deal damage, give bonus Critical.";
 	public static int itemCostArcher = 1;
 	public static int itemIncrementArcher = 1;
     public static string itemPassiveTypeArcher = "Damage";
 
 	public static string itemTitleMage = "Mage";
-    public static string itemDescriptionMage = "Mages grant bonus Attack and deal damage.";
+    public static string itemDescriptionMage = "Mages deal damage, give bonus Attack.";
 	public static int itemCostMage = 1;
 	public static int itemIncrementMage = 1;
     public static string itemPassiveTypeMage = "Damage";
 
 	public static string itemTitlePriest = "Priest";
-    public static string itemDescriptionPriest = "Priests grant bonus Health and perform healing.";
+    public static string itemDescriptionPriest = "Priests perform healing, give bonus Health.";
 	public static int itemCostPriest = 1;
 	public static int itemIncrementPriest = 1;
     public static string itemPassiveTypePriest = "Healing";
 
 	public static string itemTitlePaladin = "Paladin";
-    public static string itemDescriptionPaladin = "Paladin grant bonus Defense and perform healing.";
+    public static string itemDescriptionPaladin = "Paladin perform healing, give bonus Defense.";
 	public static int itemCostPaladin = 1;
 	public static int itemIncrementPaladin = 1;
     public static string itemPassiveTypePaladin = "Healing";
