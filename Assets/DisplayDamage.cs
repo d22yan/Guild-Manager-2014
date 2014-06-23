@@ -14,7 +14,7 @@ public class DisplayDamage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(new Vector3(0.001f, 0.001f, 0f));
+        transform.Translate(new Vector3(0f, 0.001f, 0f));
         Utility.SetAlpha(guiText.material, Mathf.Cos((Time.time - CreationTime) * ((Mathf.PI / 2) / TimeToFade)));
         Destroy(gameObject, TimeToFade);
 	}
