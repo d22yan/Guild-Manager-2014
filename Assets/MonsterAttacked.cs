@@ -26,7 +26,7 @@ public class MonsterAttacked : MonoBehaviour {
 	}
 
     void OnMouseDown() {
-        transform.localScale = new Vector3(InitialScale.x * Constant.AnimateShrinkOnMonsterAttacked, InitialScale.y * Constant.AnimateShrinkOnMonsterAttacked, 0);
+        transform.localScale = new Vector3(InitialScale.x * Constant.AnimationShrinkOnMonsterAttacked, InitialScale.y * Constant.AnimationShrinkOnMonsterAttacked, 0);
     }
 
 	void OnMouseUp() {
