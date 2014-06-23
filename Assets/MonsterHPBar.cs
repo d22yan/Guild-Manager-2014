@@ -17,7 +17,7 @@ public class MonsterHPBar : MonoBehaviour {
 		GUI.Box (new Rect (0,0, barWidth, size.y),progressBarEmpty);
 		
 		// draw the filled-in part:
-		GUI.BeginGroup (new Rect (0, 0, size.x * barDisplay, size.y));
+		GUI.BeginGroup (new Rect (0, 0, barWidth * barDisplay, size.y));
 		GUI.Box (new Rect (0,0, barWidth, size.y),progressBarFull);
 		GUI.EndGroup ();
 		
@@ -32,7 +32,7 @@ public class MonsterHPBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		barDisplay = (float)monsterStatus.CurrentHealth / 100;
+		barDisplay = (float)monsterStatus.CurrentHealth / monsterStatus.MaxHealth;
 	}
 	
 }
