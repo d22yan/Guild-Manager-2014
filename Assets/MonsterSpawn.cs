@@ -26,15 +26,15 @@ public class MonsterSpawn : MonoBehaviour {
 		switch(randomNumber) {
 			case 0:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite1;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 10;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 1;//bat
 				break;
 			case 1:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite2;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 1;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 2;//bee
 				break;
 			case 2:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite3;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 5;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 3; //fish
 				break;
 		}
 	}

@@ -57,10 +57,10 @@ public static class Constant {
     
 
     public static int InitialPlayerGold = 1000;
-    public static int InitialPlayerAttack = 1;
-    public static int InitialPlayerDefense = 1;
-    public static int InitialPlayerCritical = 1;
-    public static int InitialPlayerHealth = 100;
+    public static int InitialPlayerAttack = 10;
+    public static int InitialPlayerDefense = 10;
+    public static int InitialPlayerCritical = 10;
+    public static int InitialPlayerHealth = 10;
 
 	public static int InitialGuildClassQuantity = 0;
 	public static int InitialGuildClassLevel = 1;
@@ -68,7 +68,7 @@ public static class Constant {
 
 	public static float RateGoldLossOnDeath = 0.1f;
 
-	public static int InitialMonsterAttackSpeed = 1;
+	public static int InitialMonsterAttackSpeed = 2;
 	public static int InitialMonsterAttackDamage = 1;
 	public static int InitialMonsterMaxHealth = 100;
 	public static int InitialMonsterCurrentHealth = 100;
