@@ -26,18 +26,19 @@ public class MonsterAttacked : MonoBehaviour {
 	}
 
     void OnMouseDown() {
-        transform.localScale = new Vector3(InitialScale.x * Constant.AnimateShrinkOnMonsterAttacked, InitialScale.y * Constant.AnimateShrinkOnMonsterAttacked, 0);
+        transform.localScale = new Vector3(InitialScale.x * Constant.AnimationShrinkOnMonsterAttacked, InitialScale.y * Constant.AnimationShrinkOnMonsterAttacked, 0);
     }
 
 	void OnMouseUp() {
-        DealDamage(GameState.State.PlayerStatus.GetTotalAttack());
-        DisplayDamage(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+        int TotalDamage = GameState.State.PlayerStatus.GetTotalAttack();
+        DealDamage(TotalDamage);
+        DisplayDamage(TotalDamage.ToString(), new Vector2(Input.mousePosition.x, Input.mousePosition.y));
         transform.localScale = new Vector3(InitialScale.x, InitialScale.y, 0);
 	}
 
-    void DisplayDamage(Vector2 InputPosition) {
+    void DisplayDamage(string Damage, Vector2 InputPosition) {
         GameObject boxClone = (GameObject)Instantiate(DamageBox, new Vector2(InputPosition.x / Screen.width, InputPosition.y/ Screen.height), new Quaternion());
-        boxClone.guiText.text = "-" + GameState.State.PlayerStatus.GetTotalAttack().ToString();
+        boxClone.guiText.text = "-" + Damage;
     }
 
 	void DealDamage(int damage) {
@@ -45,13 +46,19 @@ public class MonsterAttacked : MonoBehaviour {
 	}
 
     void AttackedByMage() {
-        DealDamage(GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveStat());
-        DisplayDamage(new Vector2(InitialPosition.x + Screen.width / 2, InitialPosition.y + Screen.height / 2));
+        int TotalDamage = GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveStat();
+        if (TotalDamage > 0) {
+            DealDamage(TotalDamage);
+            DisplayDamage(TotalDamage.ToString(), new Vector2(InitialPosition.x + Screen.width / 2, InitialPosition.y + Screen.height / 2));
+        }
     }
 
     void AttackedByArcher() {
-        DealDamage(GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat());
-        DisplayDamage(new Vector2((InitialPosition.x + Screen.width / 2) / Screen.width, (InitialPosition.y + Screen.height / 2) / Screen.height));
+        int TotalDamage = GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat();
+        if (TotalDamage > 0) {
+            DealDamage(TotalDamage);
+            DisplayDamage(TotalDamage.ToString(), new Vector2((InitialPosition.x + Screen.width / 2) / Screen.width, (InitialPosition.y + Screen.height / 2) / Screen.height));
+        }
     }
 
     void DeathCheck()
