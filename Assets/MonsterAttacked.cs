@@ -52,7 +52,7 @@ public class MonsterAttacked : MonoBehaviour {
         int TotalDamage = GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveStat();
         if (TotalDamage > 0) {
             DealDamage(TotalDamage);
-            DisplayDamage(TotalDamage.ToString(), new Vector2(InitialMonsterSpawnPosition.x + Screen.width / 2, InitialMonsterSpawnPosition.y + Screen.height / 2));
+            DisplayDamage(TotalDamage.ToString(), new Vector2((InitialMonsterSpawnPosition.x + Screen.width / 2) + Constant.DisplayGuildMemberDamageOffset, (InitialMonsterSpawnPosition.y + Screen.height / 2) + Constant.DisplayGuildMemberDamageOffset));
         }
     }
 
@@ -60,7 +60,7 @@ public class MonsterAttacked : MonoBehaviour {
         int TotalDamage = GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat();
         if (TotalDamage > 0) {
             DealDamage(TotalDamage);
-            DisplayDamage(TotalDamage.ToString(), new Vector2(InitialMonsterSpawnPosition.x + Screen.width / 2, InitialMonsterSpawnPosition.y + Screen.height / 2));
+            DisplayDamage(TotalDamage.ToString(), new Vector2((InitialMonsterSpawnPosition.x + Screen.width / 2) - Constant.DisplayGuildMemberDamageOffset, (InitialMonsterSpawnPosition.y + Screen.height / 2) - Constant.DisplayGuildMemberDamageOffset));
         }
     }
 

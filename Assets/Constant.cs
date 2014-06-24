@@ -77,6 +77,7 @@ public static class Constant
     public const int DelayMonsterInitialAttack = 1;
 
     public const float AnimationShrinkOnMonsterAttacked = 0.9f;
-    public const float AnimationTranslateDamageBoxX = 0f;
-    public const float AnimationTranslateDamageBoxY = 0.001f;
+    public static readonly Vector2 AnimationTranslateDamageBox = new Vector2(0, 0.001f);
+
+    public const int DisplayGuildMemberDamageOffset = 10;
 }
