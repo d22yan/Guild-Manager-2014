@@ -6,7 +6,10 @@ public class MonsterAttacked : MonoBehaviour {
 
 	public MonsterStatus monsterStatus;
 	public MonsterDefeated monsterDefeated;
+    public Sprite monsterHit;
 
+    private Sprite originalSprite;
+    private Queue spriteToggled;
     private Vector2 InitialScale;
     private Vector2 InitialMonsterSpawnPosition;
     private Vector2 InitialMousePoisition;
@@ -15,6 +18,8 @@ public class MonsterAttacked : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        originalSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+        spriteToggled = new Queue();
         InitialScale = new Vector2(transform.localScale.x, transform.localScale.y);
         InitialMonsterSpawnPosition = new Vector2(transform.position.x, transform.position.y);
         InitialMousePoisition = new Vector2(Screen.width / 2, Screen.height / 2);
@@ -30,6 +35,18 @@ public class MonsterAttacked : MonoBehaviour {
     void OnMouseDown() {
         InitialMousePoisition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         transform.localScale = new Vector3(InitialScale.x * Constant.AnimationShrinkOnMonsterAttacked, InitialScale.y * Constant.AnimationShrinkOnMonsterAttacked, 0);
+        gameObject.GetComponent<SpriteRenderer>().sprite = monsterHit;
+        StartCoroutine(ToggleHitSprite());
+    }
+
+    IEnumerator ToggleHitSprite()
+    {
+        spriteToggled.Enqueue(true);
+        yield return new WaitForSeconds(1);
+        spriteToggled.Dequeue();
+
+        if (spriteToggled.Count == 0)
+            gameObject.GetComponent<SpriteRenderer>().sprite = originalSprite;
     }
 
 	void OnMouseUp() {

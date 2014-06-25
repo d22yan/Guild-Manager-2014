@@ -4,8 +4,11 @@ using System.Collections;
 public class MonsterSpawn : MonoBehaviour {
 
 	public Sprite sprite1;
+    public Sprite sprite1Hit;
 	public Sprite sprite2;
+    public Sprite sprite2Hit;
 	public Sprite sprite3;
+    public Sprite sprite3Hit;
 
 
 	public GameObject monster;
@@ -26,15 +29,18 @@ public class MonsterSpawn : MonoBehaviour {
 		switch(randomNumber) {
 			case 0:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite1;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 1;//bat
+                monsterClone.GetComponent<MonsterAttacked>().monsterHit = sprite1Hit;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 1;
 				break;
 			case 1:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite2;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 2;//bee
+                monsterClone.GetComponent<MonsterAttacked>().monsterHit = sprite2Hit;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 2;
 				break;
 			case 2:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite3;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 3; //fish
+                monsterClone.GetComponent<MonsterAttacked>().monsterHit = sprite3Hit;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 3;
 				break;
 		}
 	}
