@@ -194,8 +194,7 @@ public class GoldTotal : MonoBehaviour {
 
 	void OnGUI() {
         GUI.skin = greenSkin;
-
-        if (GUI.Button(new Rect(Screen.width - 100, 0, 100, 40), "$" + GameState.State.PlayerGold.ToString()))
+        if (ScalingGUI.Button(new Rect(Screen.width - 100, 0, 100, 40), "$" + GameState.State.PlayerGold.ToString()))
         {
 			isShopDisplayed = !isShopDisplayed;
 		}

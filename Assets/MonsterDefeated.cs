@@ -8,7 +8,7 @@ public class MonsterDefeated : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		monsterSpawn = GameObject.Find ("Main Camera").GetComponent<MonsterSpawn> ();
+		monsterSpawn = GameObject.Find ("MonsterSpawner").GetComponent<MonsterSpawn> ();
 	}
 	
 	// Update is called once per frame

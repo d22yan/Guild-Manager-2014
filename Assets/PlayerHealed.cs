@@ -5,12 +5,10 @@ public class PlayerHealed : MonoBehaviour {
     public Transform HealingEffect;
     public GameObject HealingBox;
 
-    private Vector2 InitialScale;
     private Vector2 InitialPosition;
 
 	// Use this for initialization
 	void Start () {
-        InitialScale = new Vector2(transform.localScale.x, transform.localScale.y);
         InitialPosition = new Vector2(transform.position.x, transform.position.y);
 		InvokeRepeating("HealedByPaladin", GameState.State.PlayerStatus.GuildStatus.Paladin.GetPassiveRate(),GameState.State.PlayerStatus.GuildStatus.Paladin.GetPassiveRate());
 		InvokeRepeating("HealedByPriest", GameState.State.PlayerStatus.GuildStatus.Priest.GetPassiveRate(),GameState.State.PlayerStatus.GuildStatus.Priest.GetPassiveRate());
