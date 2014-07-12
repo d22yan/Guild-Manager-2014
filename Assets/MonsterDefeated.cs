@@ -21,8 +21,4 @@ public class MonsterDefeated : MonoBehaviour {
 		Destroy (gameObject);
 		monsterSpawn.Spawn ();
 	}
-
-	void MonsterDeathAnimation() {
-
-	}
 }

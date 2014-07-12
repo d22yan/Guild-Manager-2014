@@ -8,7 +8,12 @@ public static class Constant
     public const string buttonResume = "Resume";
     public const string buttonBack = "Back";
 
-    public const string sceneBattleScreen = "battle_screen";
+    public const string battleScene1 = "battleScene1";
+    public const string battleScene2 = "battleScene2";
+    public const string battleScene3 = "battleScene3";
+    public const string battleScene4 = "battleScene4";
+    public const string battleScene5 = "battleScene5";
+
     public const string sceneMapScreen = "map_screen";
 
     public const string itemTitleArcher = "Archer";
