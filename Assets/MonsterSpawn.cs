@@ -30,17 +30,17 @@ public class MonsterSpawn : MonoBehaviour {
 			case 0:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite1;
                 monsterClone.GetComponent<MonsterAttacked>().monsterHit = sprite1Hit;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 1;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 11;
 				break;
 			case 1:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite2;
                 monsterClone.GetComponent<MonsterAttacked>().monsterHit = sprite2Hit;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 2;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 12;
 				break;
 			case 2:
 				monsterClone.GetComponent<SpriteRenderer>().sprite = sprite3;
                 monsterClone.GetComponent<MonsterAttacked>().monsterHit = sprite3Hit;
-				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 3;
+				monsterClone.GetComponent<MonsterStatus>().AttackDamage = 13;
 				break;
 		}
 	}

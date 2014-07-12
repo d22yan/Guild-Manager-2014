@@ -9,6 +9,8 @@ public class PlayerStatus {
     public int Defense { get; set; }
     public int Health { get; set; }
 
+    public float CriticalChance { get; set; }
+
     public int CurrentHealth { get; set; }
 
 	public int GetTotalAttack() {
@@ -34,5 +36,6 @@ public class PlayerStatus {
 		Defense = defense;
 		Health = health;
         CurrentHealth = health;
+        CriticalChance = 0.2f; // TODO 
 	}
 }

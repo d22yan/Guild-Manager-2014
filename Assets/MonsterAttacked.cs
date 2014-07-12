@@ -51,6 +51,12 @@ public class MonsterAttacked : MonoBehaviour {
 
 	void OnMouseUp() {
         int TotalDamage = GameState.State.PlayerStatus.GetTotalAttack();
+        System.Random rand = new System.Random();
+        double randomNumber = rand.NextDouble();
+        if (randomNumber < GameState.State.PlayerStatus.CriticalChance)
+        {
+            TotalDamage = (int) Mathf.Floor(TotalDamage * (1 + (GameState.State.PlayerStatus.GetTotalCritical() / 100.0f)));
+        }
         DealDamage(TotalDamage);
         DisplayDamage(TotalDamage.ToString(), new Vector2(InitialMousePoisition.x, InitialMousePoisition.y));
         transform.localScale = new Vector3(InitialScale.x, InitialScale.y, 0);
@@ -62,7 +68,7 @@ public class MonsterAttacked : MonoBehaviour {
     }
 
 	void DealDamage(int damage) {
-		monsterStatus.CurrentHealth -= damage;
+        monsterStatus.CurrentHealth -= damage;
 	}
 
     void AttackedByMage() {

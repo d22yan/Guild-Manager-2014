@@ -68,7 +68,7 @@ public static class Constant
     public const float RateGoldLossOnDeath = 0.1f;
 
     public const int InitialMonsterAttackSpeed = 2;
-    public const int InitialMonsterAttackDamage = 1;
+    public const int InitialMonsterAttackDamage = 10;
     public const int InitialMonsterMaxHealth = 100;
     public const int InitialMonsterCurrentHealth = 100;
     public const int InitialMonsterGoldDrop = 5;
