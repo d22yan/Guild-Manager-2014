@@ -17,7 +17,14 @@ public class MonsterAttack : MonoBehaviour {
 
 	void Attack() {
         int MonsterTotalDamage = monsterStatus.AttackDamage - GameState.State.PlayerStatus.GetTotalDefense();
-        if (MonsterTotalDamage < 0)
+        
+        if (GameState.State.PlayerStatus.GuildStatus.PaladinBuffStacks > 0)
+        {
+            MonsterTotalDamage = (int)Mathf.Floor(MonsterTotalDamage * 0.5f);
+            GameState.State.PlayerStatus.GuildStatus.PaladinBuffStacks--;
+        }
+
+        if (MonsterTotalDamage < 1)
         {
             MonsterTotalDamage = 1;
         }

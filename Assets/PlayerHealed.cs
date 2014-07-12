@@ -59,4 +59,11 @@ public class PlayerHealed : MonoBehaviour {
             DisplayHealing(healAmount, new Vector2(InitialPosition.x + Screen.width * 2 / 3, InitialPosition.y + 80));
         }
     }
+
+    public void HealedByCure()
+    {
+        int healAmount = GameState.State.PlayerStatus.GuildStatus.Priest.GetPassiveStat() * 5;
+        GameState.State.PlayerStatus.CurrentHealth += healAmount;
+        DisplayHealing(healAmount, new Vector2(InitialPosition.x + Screen.width * 2 / 3, InitialPosition.y + 80 + 5));
+    }
 }

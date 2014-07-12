@@ -13,11 +13,14 @@ public class MonsterAttacked : MonoBehaviour {
     private Vector2 InitialScale;
     private Vector2 InitialMonsterSpawnPosition;
     private Vector2 InitialMousePoisition;
+
+    private int ArrowRainCount;
     
     public GameObject DamageBox;
 
 	// Use this for initialization
 	void Start () {
+        ArrowRainCount = 0;
         originalSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
         spriteToggled = new Queue();
         InitialScale = new Vector2(transform.localScale.x, transform.localScale.y);
@@ -53,6 +56,13 @@ public class MonsterAttacked : MonoBehaviour {
         int TotalDamage = GameState.State.PlayerStatus.GetTotalAttack();
         System.Random rand = new System.Random();
         double randomNumber = rand.NextDouble();
+
+        if (GameState.State.PlayerStatus.GuildStatus.ArcherBuffStacks > 0)
+        {
+            randomNumber = 0;
+            GameState.State.PlayerStatus.GuildStatus.ArcherBuffStacks--;
+        }
+
         if (randomNumber < GameState.State.PlayerStatus.CriticalChance)
         {
             TotalDamage = (int) Mathf.Floor(TotalDamage * (1 + (GameState.State.PlayerStatus.GetTotalCritical() / 100.0f)));
@@ -79,12 +89,40 @@ public class MonsterAttacked : MonoBehaviour {
         }
     }
 
+    public void AttackedByFireball() {
+        int damage = GameState.State.PlayerStatus.GuildStatus.Mage.GetPassiveStat() * 5;
+        DealDamage(damage);
+        DisplayDamage(damage.ToString(), new Vector2((InitialMonsterSpawnPosition.x + Screen.width / 2) + Constant.DisplayGuildMemberDamageOffset, (InitialMonsterSpawnPosition.y + Screen.height / 2) + Constant.DisplayGuildMemberDamageOffset + 5));
+    }
+
     void AttackedByArcher() {
         int TotalDamage = GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat();
         if (TotalDamage > 0) {
             DealDamage(TotalDamage);
             DisplayDamage(TotalDamage.ToString(), new Vector2((InitialMonsterSpawnPosition.x + Screen.width / 2) - Constant.DisplayGuildMemberDamageOffset, (InitialMonsterSpawnPosition.y + Screen.height / 2) - Constant.DisplayGuildMemberDamageOffset));
         }
+    }
+
+    void AttackedByArrow()
+    {
+        int TotalDamage = GameState.State.PlayerStatus.GuildStatus.Archer.GetPassiveStat();
+        if (TotalDamage > 0)
+        {
+            DealDamage(TotalDamage);
+            DisplayDamage(TotalDamage.ToString(), new Vector2((InitialMonsterSpawnPosition.x + Screen.width / 2) - Constant.DisplayGuildMemberDamageOffset, (InitialMonsterSpawnPosition.y + Screen.height / 2) - Constant.DisplayGuildMemberDamageOffset));
+        }
+        ArrowRainCount--;
+
+        if (ArrowRainCount == 0)
+        {
+            CancelInvoke("AttackedByArrow");
+        }
+    }
+
+    public void AttackedByArrowRain()
+    {
+        ArrowRainCount = 5;
+        InvokeRepeating("AttackedByArrow", 0f, 0.3f);
     }
 
     void DeathCheck()
