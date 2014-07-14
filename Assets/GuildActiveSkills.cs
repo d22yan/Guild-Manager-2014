@@ -9,6 +9,19 @@ public class GuildActiveSkills : MonoBehaviour {
     public Texture mageTexture;
     public Texture paladinTexture;
 
+    public bool AnimateFireballFlag;
+    public int AnimateFireballCounter;
+    public float AnimateFireballStartTime;
+    public float AnimateFireballIntervalTime;
+    public List<Texture> PopExplosionTextures;
+
+    void Awake()
+    {
+        AnimateFireballFlag = false;
+        AnimateFireballIntervalTime = 0.1f;
+        AnimateFireballCounter = 0;
+    }
+
     void OnGUI() {
         if (GUI.Button(new Rect(0, 200, 50, 50), mageTexture)) {
             TriggerMageActiveSkill();
@@ -25,11 +38,17 @@ public class GuildActiveSkills : MonoBehaviour {
         {
             TriggerPriestActiveSkill();
         }
+        if (AnimateFireballCounter > 0)
+        {
+            GUI.DrawTexture(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 200, 400, 400), PopExplosionTextures[PopExplosionTextures.Count - AnimateFireballCounter], ScaleMode.ScaleToFit, true, 0); // TODO hardcorded position
+        }
     }
 
     void TriggerMageActiveSkill()
     {
         GameObject.Find("Monster(Clone)").GetComponent<MonsterAttacked>().AttackedByFireball();
+        AnimateFireballFlag = true; 
+        AnimateFireballCounter = PopExplosionTextures.Count;
     }
 
     void TriggerArcherActiveSkill()
@@ -51,9 +70,26 @@ public class GuildActiveSkills : MonoBehaviour {
 	void Start () {
 
 	}
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
 	void Update () {
-	
+        AnimateFireBall();
 	}
+
+    void AnimateFireBall() // TODO possibly use Unity Animator
+    {
+        if (AnimateFireballCounter > 0)
+        {
+            if (AnimateFireballFlag)
+            {
+                AnimateFireballStartTime = Time.time;
+                AnimateFireballFlag = false;
+            }
+            if (Time.time - AnimateFireballStartTime > AnimateFireballIntervalTime)
+            {
+                AnimateFireballStartTime = Time.time;
+                AnimateFireballCounter--;
+            }
+        }
+    }
 }
