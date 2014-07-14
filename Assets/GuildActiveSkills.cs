@@ -76,10 +76,6 @@ public class GuildActiveSkills : MonoBehaviour {
         {
             TriggerPriestActiveSkill();
         }
-        if (GUI.Button(new Rect(50, 50, 50, 50), AnimateFireBallCounter.ToString()))
-        {
-
-        }
         if (AnimateFireBallCounter > 0)
         {
             GUI.DrawTexture(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 200, 400, 400), pop_explosion[pop_explosion.Count - AnimateFireBallCounter], ScaleMode.ScaleToFit, true, 0); // TODO hardcorded position
