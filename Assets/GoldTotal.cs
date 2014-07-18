@@ -29,6 +29,8 @@ public class GoldTotal : MonoBehaviour {
     public Vector2 itemSize;
     public Vector2 buyButtonSize;
     public Vector2 buyButtonPosition;
+    public Vector2 levelButtonPosition;
+    public Vector2 levelButtonSize;
     public Vector2 iconPosition;
     public Vector2 iconSize;
     public Vector2 itemDescriptionPosition;
@@ -44,6 +46,7 @@ public class GoldTotal : MonoBehaviour {
     delegate void IncrementDelegate(int increment);
     List<IncrementDelegate> statusIncrementDelegates;
     List<IncrementDelegate> classIncrementDelegates;
+    List<IncrementDelegate> classLevelIncrementDelegates;
 
     delegate int NumberDelegate();
     List<NumberDelegate> statusDelegates;
@@ -102,6 +105,13 @@ public class GoldTotal : MonoBehaviour {
                     GameState.State.HireCosts[hireItems[i].Name]++;
                 }
             }
+            if (GameState.State.PlayerGold >= GameState.State.HireLevelCosts[hireItems[i].Name]) {
+                if (GUI.Button(new Rect(levelButtonPosition.x, levelButtonPosition.y + itemSize.y * i, levelButtonSize.x, levelButtonSize.y), "Level")) {
+                    classLevelIncrementDelegates[i](1);
+                    GameState.State.PlayerGold -= GameState.State.HireLevelCosts[hireItems[i].Name];
+                    GameState.State.HireLevelCosts[hireItems[i].Name] *= 2;
+                }
+            }
         }
         ScalingGUI.EndGroup();
 	}
@@ -148,6 +158,14 @@ public class GoldTotal : MonoBehaviour {
             (i) => GameState.State.PlayerStatus.GuildStatus.Paladin.Quantity += i,
             (i) => GameState.State.PlayerStatus.GuildStatus.Priest.Quantity += i
         };
+
+        classLevelIncrementDelegates = new List<IncrementDelegate>()
+        {
+            (i) => GameState.State.PlayerStatus.GuildStatus.Mage.Level += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Archer.Level += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Paladin.Level += i,
+            (i) => GameState.State.PlayerStatus.GuildStatus.Priest.Level += i
+        };
         
         hireItems = new List<HireItem>() { 
             new HireItem(Constant.itemTitleMage, Constant.itemDescriptionMage, Constant.itemCostMage, Constant.itemIncrementMage, mageTexture, Constant.itemPassiveTypeMage),
@@ -184,6 +202,9 @@ public class GoldTotal : MonoBehaviour {
 
         buyButtonPosition = new Vector2 (shopWidth - 11, shopItemHeight - 10 - 16/9f);
         buyButtonSize = new Vector2 (10, 10);
+
+        levelButtonPosition = new Vector2(shopWidth - 70, shopItemHeight - 60);
+        levelButtonSize = new Vector2(80, 20);
 
         iconPosition = new Vector2(2 * 9 / 16, 2); //TODO: refactor hard coded aspect ratio
         iconSize = new Vector2 ((itemSize.y - 4) * 9 / 16, itemSize.y - 4);
