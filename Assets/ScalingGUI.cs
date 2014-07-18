@@ -6,7 +6,7 @@ public static class ScalingGUI {
     public static void SetSkin(GUISkin skin)
     {
         skin.button.fontSize = (int)Math.Round(Screen.width * 2d / 100);
-        skin.label.fontSize = (int)Math.Round(Screen.width * 1.5d / 100);
+        skin.label.fontSize = (int)Math.Round(Screen.width * 1.75d / 100);
         GUI.skin = skin;
     }
 

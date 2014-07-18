@@ -5,7 +5,8 @@ public static class Constant
 {
     public const string buttonShop = "Shop";
     public const string buttonHire = "Hire";
-    public const string buttonResume = "Resume";
+    public const string buttonResume = "Continue";
+    public const string buttonBegin = "Begin";
     public const string buttonBack = "Back";
 
     public const string battleScene1 = "battleScene1";

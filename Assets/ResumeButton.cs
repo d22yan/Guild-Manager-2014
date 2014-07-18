@@ -6,9 +6,24 @@ public class ResumeButton : MonoBehaviour {
 
 	void OnGUI() {
         GUI.skin = blueSkin;
-        if (ScalingGUI.Button(new Rect(0, 0, 20, 10), Constant.buttonResume))
+        string buttonText;
+        string levelName;
+
+        if (GameState.State.PreviousScene == null)
         {
-			Application.LoadLevel(Constant.battleScene1);
+            buttonText = Constant.buttonBegin;
+            levelName = Constant.battleScene1;
+        }
+        else 
+        {
+            buttonText = Constant.buttonResume;
+            levelName = GameState.State.PreviousScene;
+        }
+
+        if (ScalingGUI.Button(new Rect(0, 0, 20, 10), buttonText))
+        {
+            Application.LoadLevel(levelName);
+            GameState.State.PreviousScene = levelName;
 		}
 	}
 

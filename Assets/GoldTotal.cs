@@ -64,7 +64,7 @@ public class GoldTotal : MonoBehaviour {
                 itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, 
                 itemDescriptionSize.x, itemDescriptionSize.y),
                 string.Format(
-                    "Increase your {0} by {1}.\n{2}\n\nYour current {0}: {4}\nBonus {0} from {3}s in Guild: {5}",
+                    "Increase your {0} by {1}.\n{2}\nYour current {0}: {4}\nBonus {0} from {3}s in Guild: {5}",
                     shopItems[i].Name, shopItems[i].Increment, shopItems[i].Description, hireItems[i].Name,
                     statusDelegates[i](), statusBonusDelegates[i]()));
             ScalingGUI.Label(new Rect(itemPricePosition.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.ItemCosts[shopItems[i].Name].ToString());
@@ -90,7 +90,7 @@ public class GoldTotal : MonoBehaviour {
                 itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i,
                 itemDescriptionSize.x, itemDescriptionSize.y), 
                 string.Format(
-                    "Recruit {1} more {0}.\n{2}\n\nNumber of {0}s in Guild: {4}\n{3} over time from {0}s: {5}",
+                    "Recruit {1} more {0}.\n{2}\nNumber of {0}s in Guild: {4}\n{3} over time from {0}s: {5}",
                     hireItems[i].Name, hireItems[i].Increment, hireItems[i].Description, hireItems[i].PassiveType,
                     classDelegates[i](), classPassiveDelegates[i]()));
             ScalingGUI.Label(new Rect(itemPricePosition.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.HireCosts[hireItems[i].Name].ToString());
@@ -182,8 +182,8 @@ public class GoldTotal : MonoBehaviour {
         itemPosition = new Vector2(0, 0);
         itemSize = new Vector2(shopWidth, shopItemHeight);
 
-        buyButtonPosition = new Vector2 (shopWidth - 11, shopItemHeight - 8 - 16/9f);
-        buyButtonSize = new Vector2 (10, 8);
+        buyButtonPosition = new Vector2 (shopWidth - 11, shopItemHeight - 10 - 16/9f);
+        buyButtonSize = new Vector2 (10, 10);
 
         iconPosition = new Vector2(2 * 9 / 16, 2);
         iconSize = new Vector2 ((itemSize.y - 4) * 9 / 16, itemSize.y - 4);
