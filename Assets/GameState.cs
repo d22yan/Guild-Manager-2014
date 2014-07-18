@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour {
     public Dictionary<string, int> ItemCosts { get; set; }
     public Dictionary<string, int> HireCosts { get; set; }
     public PlayerStatus PlayerStatus { get; set; }
+    public string PreviousScene { get; set; }
 
     void Awake() {
         if (State == null)

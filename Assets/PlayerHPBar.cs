@@ -6,8 +6,8 @@ public class PlayerHPBar : HPBar {
     public GUISkin whiteHPSkin;
 
 	float barDisplay = 1;
-    Vector2 position = new Vector2((Screen.width / 4), Screen.height - 50);
-    Vector2 size = new Vector2(Screen.width / 2, 30);
+    Vector2 position = new Vector2(25, 80);
+    Vector2 size = new Vector2(50, 5);
 	public Texture2D progressBarEmpty;
 	public Texture2D progressBarFull;
 	

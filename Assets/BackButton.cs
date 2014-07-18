@@ -6,7 +6,8 @@ public class BackButton : MonoBehaviour {
 
 	void OnGUI() {
         GUI.skin = blueSkin;
-		if (GUI.Button (new Rect (0, 0, 100, 40), Constant.buttonBack)) {
+        if (ScalingGUI.Button(new Rect(0, 0, 20, 10), Constant.buttonBack))
+        {
 			Application.LoadLevel(Constant.sceneMapScreen);
 		}
 	}
