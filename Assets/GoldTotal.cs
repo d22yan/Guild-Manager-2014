@@ -55,53 +55,55 @@ public class GoldTotal : MonoBehaviour {
     public List<ShopItem> shopItems;
 
     void DrawShopTab() {
-        GUI.skin = yellowSkin;
-        GUI.BeginGroup(new Rect (groupPosition.x, groupPosition.y, groupSize.x, groupSize.y));
+        ScalingGUI.SetSkin(yellowSkin);
+        ScalingGUI.BeginGroup(new Rect(groupPosition.x, groupPosition.y, groupSize.x, groupSize.y));
         for (int i = 0; i < shopItems.Capacity; i++) {
-            GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
-            GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), shopItems[i].Texture);
-            GUI.Label(new Rect(
+            ScalingGUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
+            ScalingGUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), shopItems[i].Texture);
+            ScalingGUI.Label(new Rect(
                 itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i, 
                 itemDescriptionSize.x, itemDescriptionSize.y),
                 string.Format(
                     "Increase your {0} by {1}.\n{2}\n\nYour current {0}: {4}\nBonus {0} from {3}s in Guild: {5}",
                     shopItems[i].Name, shopItems[i].Increment, shopItems[i].Description, hireItems[i].Name,
                     statusDelegates[i](), statusBonusDelegates[i]()));
-            GUI.Label(new Rect(itemPricePosition.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.ItemCosts[shopItems[i].Name].ToString());
+            ScalingGUI.Label(new Rect(itemPricePosition.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.ItemCosts[shopItems[i].Name].ToString());
             if (GameState.State.PlayerGold >= GameState.State.ItemCosts[shopItems[i].Name]) {
-                if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "Buy")) {
+                if (ScalingGUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "Buy"))
+                {
                     statusIncrementDelegates[i](shopItems[i].Increment);
                     GameState.State.PlayerGold -= GameState.State.ItemCosts[shopItems[i].Name];
                     GameState.State.ItemCosts[shopItems[i].Name]++;
                 }
             }
         }
-        GUI.EndGroup();
+        ScalingGUI.EndGroup();
 	}
 
 	void DrawHireTab() {
-        GUI.skin = yellowSkin;
-		GUI.BeginGroup (new Rect (groupPosition.x, groupPosition.y, groupSize.x, groupSize.y));
+        ScalingGUI.SetSkin(yellowSkin);
+        ScalingGUI.BeginGroup(new Rect(groupPosition.x, groupPosition.y, groupSize.x, groupSize.y));
         for (int i = 0; i < hireItems.Capacity; i++ ) {
-            GUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
-            GUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), hireItems[i].Texture);
-            GUI.Label(new Rect(
+            ScalingGUI.Box(new Rect(itemPosition.x, itemPosition.y + itemSize.y * i, itemSize.x, itemSize.y), shopItemTexture);
+            ScalingGUI.Box(new Rect(iconPosition.x, iconPosition.y + itemSize.y * i, iconSize.x, iconSize.y), hireItems[i].Texture);
+            ScalingGUI.Label(new Rect(
                 itemDescriptionPosition.x, itemDescriptionPosition.y + itemSize.y * i,
                 itemDescriptionSize.x, itemDescriptionSize.y), 
                 string.Format(
                     "Recruit {1} more {0}.\n{2}\n\nNumber of {0}s in Guild: {4}\n{3} over time from {0}s: {5}",
                     hireItems[i].Name, hireItems[i].Increment, hireItems[i].Description, hireItems[i].PassiveType,
                     classDelegates[i](), classPassiveDelegates[i]()));
-            GUI.Label(new Rect(itemPricePosition.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.HireCosts[hireItems[i].Name].ToString());
+            ScalingGUI.Label(new Rect(itemPricePosition.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.HireCosts[hireItems[i].Name].ToString());
             if (GameState.State.PlayerGold >= GameState.State.HireCosts[hireItems[i].Name]) {
-                if (GUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "Buy")) {
+                if (ScalingGUI.Button(new Rect(buyButtonPosition.x, buyButtonPosition.y + itemSize.y * i, buyButtonSize.x, buyButtonSize.y), "Buy"))
+                {
                     classIncrementDelegates[i](hireItems[i].Increment);
                     GameState.State.PlayerGold -= GameState.State.HireCosts[hireItems[i].Name];
                     GameState.State.HireCosts[hireItems[i].Name]++;
                 }
             }
         }
-		GUI.EndGroup ();
+        ScalingGUI.EndGroup();
 	}
 
     void InitializeShopItems() {
@@ -163,15 +165,16 @@ public class GoldTotal : MonoBehaviour {
     }
 
     void InitializeVector() {
-        var shopWidth = Screen.width <= 600 ? Screen.width : 600;
-        var shopItemHeight = 100;
-        var shopHeight = Screen.height <= shopItemHeight * 4 ? Screen.height : shopItemHeight * 4;
+        var shopWidth = 80;
+        var shopItemHeight = 18;
+        var shopHeight = shopItemHeight * 4;
 
-        var shopPositionX = Screen.width - shopWidth >= 0 ? (Screen.width - shopWidth) / 2 : 0;
-        var shopPositionY = Screen.height - shopHeight >= 80 ? (Screen.height - shopHeight) / 2 : 80;
+        tabButtonSize = new Vector2(shopWidth / 2, 8);
 
-        tabButtonPosition = new Vector2(shopPositionX, shopPositionY - 40);
-        tabButtonSize = new Vector2(shopWidth * 0.5f, 40);
+        var shopPositionX = (100 - shopWidth) / 2;
+        var shopPositionY = (100 - shopHeight + tabButtonSize.y) / 2;
+
+        tabButtonPosition = new Vector2(shopPositionX, shopPositionY - 8);
 
         groupPosition = new Vector2(shopPositionX, shopPositionY);
         groupSize = new Vector2(shopWidth, shopHeight);
@@ -179,31 +182,33 @@ public class GoldTotal : MonoBehaviour {
         itemPosition = new Vector2(0, 0);
         itemSize = new Vector2(shopWidth, shopItemHeight);
 
-        buyButtonPosition = new Vector2 (shopWidth - 70, shopItemHeight - 40);
-        buyButtonSize = new Vector2 (60, 30);
+        buyButtonPosition = new Vector2 (shopWidth - 11, shopItemHeight - 8 - 16/9f);
+        buyButtonSize = new Vector2 (10, 8);
 
-        iconPosition = new Vector2 (10, 10);
-        iconSize = new Vector2 (itemSize.y - 20, itemSize.y - 20);
+        iconPosition = new Vector2(2 * 9 / 16, 2);
+        iconSize = new Vector2 ((itemSize.y - 4) * 9 / 16, itemSize.y - 4);
 
-        itemDescriptionPosition = new Vector2 (iconSize.x + 20, 10);
-        itemDescriptionSize = new Vector2 (itemSize.x - (iconSize.x + 20 + buyButtonSize.x + 20) , itemSize.y - 20);
+        itemDescriptionPosition = new Vector2(iconPosition.x + iconSize.x + 1, 1);
+        itemDescriptionSize = new Vector2(itemSize.x - (itemDescriptionPosition.x + 1 + buyButtonSize.x + 1), itemSize.y - 2);
 
-        itemPricePosition = new Vector2 (buyButtonPosition.x, 10);
+        itemPricePosition = new Vector2 (buyButtonPosition.x, 1);
         itemPriceSize = new Vector2 (buyButtonSize.x, buyButtonSize.y);
     }
 
 	void OnGUI() {
-        GUI.skin = greenSkin;
-        if (ScalingGUI.Button(new Rect(Screen.width - 100, 0, 100, 40), "$" + GameState.State.PlayerGold.ToString()))
+        ScalingGUI.SetSkin(greenSkin);
+        if (ScalingGUI.Button(new Rect(80, 0, 20, 10), "$" + GameState.State.PlayerGold.ToString()))
         {
 			isShopDisplayed = !isShopDisplayed;
 		}
-        GUI.skin = blueSkin;
+        ScalingGUI.SetSkin(blueSkin);
 		if (isShopDisplayed) {
-			if (GUI.Button (new Rect (tabButtonPosition.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), Constant.buttonShop)) {
+            if (ScalingGUI.Button(new Rect(tabButtonPosition.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), Constant.buttonShop))
+            {
 				DrawTab = DrawShopTab;
 			}
-			if (GUI.Button (new Rect (tabButtonPosition.x + tabButtonSize.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), Constant.buttonHire)) {
+            if (ScalingGUI.Button(new Rect(tabButtonPosition.x + tabButtonSize.x, tabButtonPosition.y, tabButtonSize.x, tabButtonSize.y), Constant.buttonHire))
+            {
 				DrawTab = DrawHireTab;
 			}
 			DrawTab();

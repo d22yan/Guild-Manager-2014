@@ -6,7 +6,8 @@ public class ResumeButton : MonoBehaviour {
 
 	void OnGUI() {
         GUI.skin = blueSkin;
-		if (GUI.Button (new Rect (0, 0, 100, 40), Constant.buttonResume)) {
+        if (ScalingGUI.Button(new Rect(0, 0, 20, 10), Constant.buttonResume))
+        {
 			Application.LoadLevel(Constant.battleScene1);
 		}
 	}
