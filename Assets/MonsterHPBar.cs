@@ -7,8 +7,8 @@ public class MonsterHPBar : HPBar {
 
 	public MonsterStatus monsterStatus;
 	float barDisplay = 1;
-    Vector2 position = new Vector2((Screen.width - Screen.width / 4) / 2, Screen.height / 4);
-    Vector2 size = new Vector2((Screen.width / 4), 30);
+    Vector2 position = new Vector2(35, 15);
+    Vector2 size = new Vector2(30, 5);
 	public Texture2D progressBarEmpty;
 	public Texture2D progressBarFull;
 

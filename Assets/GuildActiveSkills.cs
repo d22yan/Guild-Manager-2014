@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class GuildActiveSkills : MonoBehaviour {
-
+    public GUISkin yellowSkin;
+    
     public Texture archerTexture;
     public Texture priestTexture;
     public Texture mageTexture;
@@ -23,24 +24,25 @@ public class GuildActiveSkills : MonoBehaviour {
     }
 
     void OnGUI() {
-        if (GUI.Button(new Rect(0, 200, 50, 50), mageTexture)) {
+        ScalingGUI.SetSkin(yellowSkin);
+        if (ScalingGUI.Button(new Rect(30, 90, 10 * 9 / 16f, 10), mageTexture)) {
             TriggerMageActiveSkill();
         }
-        if (GUI.Button(new Rect(0, 250, 50, 50), archerTexture))
+        if (ScalingGUI.Button(new Rect(40, 90, 10 * 9 / 16f, 10), archerTexture))
         {
             TriggerArcherActiveSkill();
         }
-        if (GUI.Button(new Rect(0, 300, 50, 50), paladinTexture))
+        if (ScalingGUI.Button(new Rect(50 + 10 - 10 * 9 / 16f, 90, 10 * 9 / 16f, 10), paladinTexture))
         {
             TriggerPaladinActiveSkill();
         }
-        if (GUI.Button(new Rect(0, 350, 50, 50), priestTexture))
+        if (ScalingGUI.Button(new Rect(60 + 10 - 10 * 9 / 16f, 90, 10 * 9 / 16f, 10), priestTexture))
         {
             TriggerPriestActiveSkill();
         }
         if (AnimateFireballCounter > 0)
         {
-            GUI.DrawTexture(new Rect(Screen.width / 2 - 200, Screen.height / 2 - 200, 400, 400), PopExplosionTextures[PopExplosionTextures.Count - AnimateFireballCounter], ScaleMode.ScaleToFit, true, 0); // TODO hardcorded position
+            ScalingGUI.DrawTexture(new Rect(30, 30, 40, 40), PopExplosionTextures[PopExplosionTextures.Count - AnimateFireballCounter], ScaleMode.ScaleToFit, true, 0); // TODO hardcorded position
         }
     }
 

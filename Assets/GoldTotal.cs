@@ -169,12 +169,12 @@ public class GoldTotal : MonoBehaviour {
         var shopItemHeight = 18;
         var shopHeight = shopItemHeight * 4;
 
-        tabButtonSize = new Vector2(shopWidth / 2, 8);
+        tabButtonSize = new Vector2(shopWidth / 2, 7);
 
         var shopPositionX = (100 - shopWidth) / 2;
         var shopPositionY = (100 - shopHeight + tabButtonSize.y) / 2;
 
-        tabButtonPosition = new Vector2(shopPositionX, shopPositionY - 8);
+        tabButtonPosition = new Vector2(shopPositionX, shopPositionY - 7);
 
         groupPosition = new Vector2(shopPositionX, shopPositionY);
         groupSize = new Vector2(shopWidth, shopHeight);
