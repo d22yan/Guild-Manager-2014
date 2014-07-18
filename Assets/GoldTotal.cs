@@ -185,11 +185,11 @@ public class GoldTotal : MonoBehaviour {
         buyButtonPosition = new Vector2 (shopWidth - 11, shopItemHeight - 10 - 16/9f);
         buyButtonSize = new Vector2 (10, 10);
 
-        iconPosition = new Vector2(2 * 9 / 16, 2);
+        iconPosition = new Vector2(2 * 9 / 16, 2); //TODO: refactor hard coded aspect ratio
         iconSize = new Vector2 ((itemSize.y - 4) * 9 / 16, itemSize.y - 4);
 
-        itemDescriptionPosition = new Vector2(iconPosition.x + iconSize.x + 1, 1);
-        itemDescriptionSize = new Vector2(itemSize.x - (itemDescriptionPosition.x + 1 + buyButtonSize.x + 1), itemSize.y - 2);
+        itemDescriptionPosition = new Vector2(iconPosition.x + iconSize.x + 1, 2);
+        itemDescriptionSize = new Vector2(itemSize.x - (itemDescriptionPosition.x + 1 + buyButtonSize.x + 1), itemSize.y - 4);
 
         itemPricePosition = new Vector2 (buyButtonPosition.x, 1);
         itemPriceSize = new Vector2 (buyButtonSize.x, buyButtonSize.y);
