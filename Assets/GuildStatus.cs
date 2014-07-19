@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
+[Serializable]
 public class GuildStatus {
 
     public GuildClass Archer { get; set; }

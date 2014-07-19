@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
+[Serializable]
 public class PlayerStatus {
     public GuildStatus GuildStatus { get; set; }
 

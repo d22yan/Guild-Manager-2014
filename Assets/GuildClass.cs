@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
+[Serializable]
 public class GuildClass {
 
 	public int Quantity { get; set; }

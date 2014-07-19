@@ -222,6 +222,17 @@ public class GoldTotal : MonoBehaviour {
     }
 
 	void OnGUI() {
+
+        if (ScalingGUI.Button(new Rect(90, 90, 10, 10), "Save"))
+        {
+            Persistence.Save();
+        }
+
+        if (ScalingGUI.Button(new Rect(0, 90, 10, 10), "Load"))
+        {
+            Persistence.Load();
+        }
+
         ScalingGUI.SetSkin(greenSkin);
         if (ScalingGUI.Button(new Rect(80, 0, 20, 10), "$" + GameState.State.PlayerGold.ToString()))
         {
