@@ -7,11 +7,24 @@ public class DetectApplicationPause : MonoBehaviour {
         if (paused)
         {
             GUI.Label(new Rect(100, 100, 50, 30), "Game paused");
-            GameState.State.PlayerGold = 0;
         }
     }
+#if UNITY_ANDROID
     void OnApplicationPause(bool pauseStatus) {
-        Debug.Log("paused");
+        Debug.Log("paused: " + paused.ToString());
+        GameState.State.PlayerGold = 1000;
         paused = pauseStatus;
     }
+
+    void OnApplicationFocus(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            GameState.State.PlayerGold += 10;
+        }
+        else {
+            GameState.State.PlayerGold += 100;
+        }
+    }
+#endif
 }
