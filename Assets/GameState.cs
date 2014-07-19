@@ -44,10 +44,18 @@ public class GameState : MonoBehaviour {
             HireLevelCosts.Add(Constant.itemTitleMage, 1);
             HireLevelCosts.Add(Constant.itemTitlePriest, 1);
             HireLevelCosts.Add(Constant.itemTitlePaladin, 1);
+            Persistence.Load();
+            InvokeRepeating("SaveGameState", 5.0f, 5.0f);
         }
         else if (State != this)
         {
             Destroy(gameObject);
         }
 	}
+
+    void SaveGameState()
+    {
+        Debug.Log("Saved");
+        Persistence.Save();
+    }
 }

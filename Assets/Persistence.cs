@@ -24,12 +24,15 @@ public class Persistence {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/" + GameStateFileName, FileMode.Open);
             GameData data = (GameData)binaryFormatter.Deserialize(file);
-            GameState.State.PlayerGold = data.PlayerGold;
-            GameState.State.ItemCosts = data.ItemCosts;
-            GameState.State.HireCosts = data.HireCosts;
-            GameState.State.HireLevelCosts = data.HireLevelCosts;
-            GameState.State.PlayerStatus = data.PlayerStatus;
-            GameState.State.PreviousScene = data.PreviousScene;
+            if (data != null)
+            {
+                GameState.State.PlayerGold = data.PlayerGold;
+                GameState.State.ItemCosts = data.ItemCosts;
+                GameState.State.HireCosts = data.HireCosts;
+                GameState.State.HireLevelCosts = data.HireLevelCosts;
+                GameState.State.PlayerStatus = data.PlayerStatus;
+                GameState.State.PreviousScene = data.PreviousScene;
+            }
             file.Close();
         }
     }
