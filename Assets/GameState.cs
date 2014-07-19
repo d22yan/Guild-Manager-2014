@@ -39,10 +39,10 @@ public class GameState : MonoBehaviour {
             HireCosts.Add(Constant.itemTitleMage, Constant.itemCostMage);
             HireCosts.Add(Constant.itemTitlePriest, Constant.itemCostPriest);
             HireCosts.Add(Constant.itemTitlePaladin, Constant.itemCostPaladin);
-            HireLevelCosts.Add(Constant.itemTitleArcher, Constant.itemCostArcher + 10);
-            HireLevelCosts.Add(Constant.itemTitleMage, Constant.itemCostMage + 10);
-            HireLevelCosts.Add(Constant.itemTitlePriest, Constant.itemCostPriest + 10);
-            HireLevelCosts.Add(Constant.itemTitlePaladin, Constant.itemCostPaladin + 10);
+            HireLevelCosts.Add(Constant.itemTitleArcher, 1);
+            HireLevelCosts.Add(Constant.itemTitleMage, 1);
+            HireLevelCosts.Add(Constant.itemTitlePriest, 1);
+            HireLevelCosts.Add(Constant.itemTitlePaladin, 1);
         }
         else if (State != this)
         {

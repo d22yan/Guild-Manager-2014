@@ -105,11 +105,16 @@ public class GoldTotal : MonoBehaviour {
                     GameState.State.HireCosts[hireItems[i].Name]++;
                 }
             }
-            if (GameState.State.PlayerGold >= GameState.State.HireLevelCosts[hireItems[i].Name]) {
-                if (GUI.Button(new Rect(levelButtonPosition.x, levelButtonPosition.y + itemSize.y * i, levelButtonSize.x, levelButtonSize.y), "Level")) {
-                    classLevelIncrementDelegates[i](1);
-                    GameState.State.PlayerGold -= GameState.State.HireLevelCosts[hireItems[i].Name];
-                    GameState.State.HireLevelCosts[hireItems[i].Name] *= 2;
+            if (classDelegates[i]() > 0) {
+                ScalingGUI.Label(new Rect(itemPricePosition.x - itemPriceSize.x, itemPricePosition.y + itemSize.y * i, itemPriceSize.x, itemPriceSize.y), "$" + GameState.State.HireLevelCosts[hireItems[i].Name].ToString());
+                if (GameState.State.PlayerGold >= GameState.State.HireLevelCosts[hireItems[i].Name])
+                {
+                    if (ScalingGUI.Button(new Rect(levelButtonPosition.x, levelButtonPosition.y + itemSize.y * i, levelButtonSize.x, levelButtonSize.y), "Level"))
+                    {
+                        classLevelIncrementDelegates[i](1);
+                        GameState.State.PlayerGold -= GameState.State.HireLevelCosts[hireItems[i].Name];
+                        GameState.State.HireLevelCosts[hireItems[i].Name] *= 2;
+                    }
                 }
             }
         }
@@ -203,8 +208,8 @@ public class GoldTotal : MonoBehaviour {
         buyButtonPosition = new Vector2 (shopWidth - 11, shopItemHeight - 10 - 16/9f);
         buyButtonSize = new Vector2 (10, 10);
 
-        levelButtonPosition = new Vector2(shopWidth - 70, shopItemHeight - 60);
-        levelButtonSize = new Vector2(80, 20);
+        levelButtonPosition = new Vector2(shopWidth - 21, shopItemHeight - 10 - 16/9f);
+        levelButtonSize = new Vector2 (10, 10);
 
         iconPosition = new Vector2(2 * 9 / 16, 2); //TODO: refactor hard coded aspect ratio
         iconSize = new Vector2 ((itemSize.y - 4) * 9 / 16, itemSize.y - 4);
