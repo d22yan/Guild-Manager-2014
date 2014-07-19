@@ -11,6 +11,7 @@ public class GameData {
     public Dictionary<string, int> HireLevelCosts { get; set; }
     public PlayerStatus PlayerStatus { get; set; }
     public string PreviousScene { get; set; }
+    public DateTime PreviousTime { get; set; }
 
     public GameData(GameState state)
     {
@@ -20,5 +21,6 @@ public class GameData {
         HireLevelCosts = state.HireLevelCosts;
         PlayerStatus = state.PlayerStatus;
         PreviousScene = state.PreviousScene;
+        PreviousTime = state.PreviousTime;
     }
 }

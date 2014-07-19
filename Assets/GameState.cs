@@ -13,8 +13,10 @@ public class GameState : MonoBehaviour {
     public Dictionary<string, int> HireLevelCosts { get; set; }
     public PlayerStatus PlayerStatus { get; set; }
     public string PreviousScene { get; set; }
+    public DateTime PreviousTime{ get; set; }
 
     void Awake() {
+
         if (State == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -44,6 +46,8 @@ public class GameState : MonoBehaviour {
             HireLevelCosts.Add(Constant.itemTitleMage, 1);
             HireLevelCosts.Add(Constant.itemTitlePriest, 1);
             HireLevelCosts.Add(Constant.itemTitlePaladin, 1);
+
+            PreviousTime = new DateTime();
             Persistence.Load();
             InvokeRepeating("SaveGameState", 5.0f, 5.0f);
         }
