@@ -31,6 +31,11 @@ public static class ScalingGUI {
         return GUI.Button(BuildScaledRectangle(percentageRectangle), texture);
     }
 
+    public static bool Button(Rect percentageRectangle, Texture texture, GUIStyle guiStyle)
+    {
+        return GUI.Button(BuildScaledRectangle(percentageRectangle), texture, guiStyle);
+    }
+
     public static void Box(Rect percentageRectangle, Texture texture)
     {
         GUI.Box(BuildScaledRectangle(percentageRectangle), texture);

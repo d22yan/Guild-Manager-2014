@@ -7,7 +7,7 @@ public class QuitButton : MonoBehaviour {
     void OnGUI()
     {
         ScalingGUI.SetSkin(skin);
-        if (ScalingGUI.Button(new Rect(0, 90, 20, 10), "quit"))
+        if (ScalingGUI.Button(new Rect(0, 90, 20, 10), "Quit"))
         {
             Application.Quit();
         }
