@@ -61,7 +61,7 @@ public static class Constant
     public const int itemCostCritical = 1;
     public const int itemIncrementCritical = 1;
 
-    public const int InitialPlayerGold = 1000;
+    public const int InitialPlayerGold = 10;
     public const int InitialPlayerAttack = 10;
     public const int InitialPlayerDefense = 10;
     public const int InitialPlayerCritical = 10;
